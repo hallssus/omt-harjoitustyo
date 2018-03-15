@@ -6,3 +6,5 @@ Linkki komentorivi.txt:hen [tässä!](https://github.com/hallssus/omt-harjoitust
 Linkki gitlot.txt:hen [tässä!](https://github.com/hallssus/omt-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
 
 Tämähän on **sikakivaa**, kun se toimii!
+
+*Luodaan epämukava tilanne kun github ja git eivät ole samalla aaltopituudella*
