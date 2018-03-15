@@ -1,0 +1,142 @@
+commit 50cadf71e6ba8aea373e87fb9471a92efa30179f
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 16:01:19 2018 +0200
+
+    uusnimi
+
+ tiedostoja/file2  | 1 -
+ tiedostoja/file22 | 1 +
+ 2 files changed, 1 insertion(+), 1 deletion(-)
+
+commit 017a069df249750fdd9737cfdccbfd9e9590c8c5
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 16:00:41 2018 +0200
+
+    poistettu
+
+ tiedostoja/file1 | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 3c5ca692c4cd37612f87a90e2552bf80ab291f65
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:57:54 2018 +0200
+
+    tiedostot
+
+ tiedostoja/file2 | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 2b3e542a374a47d78a862c5fa72f702141448239
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:49:52 2018 +0200
+
+    poistettu?
+
+ tiedostoja/file1 | 1 +
+ tiedostoja/file2 | 0
+ 2 files changed, 1 insertion(+)
+
+commit a09d2fa20d0ff0ea28920326231e9455108c79b7
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:44:38 2018 +0200
+
+    tiedostoja dir
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d1506c78e467aa69fc378c13358fca321c69e09b
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:37:11 2018 +0200
+
+    muutosket
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit 35d308c9683bbc889abcd766a2b9387b5775d71e
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:32:19 2018 +0200
+
+    uudelleennimetty
+
+ eka.txt      | 9 +++++++++
+ tiedosto.txt | 9 ---------
+ 2 files changed, 9 insertions(+), 9 deletions(-)
+
+commit e2317c3a9180b4596d2237c70d70c1ff2fd0b629
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:28:20 2018 +0200
+
+    poistettu toinen.txt
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 57d99fae796ec4badfed73244e24f00aeda2fc5a
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:20:08 2018 +0200
+
+    tekstiä poistettu ja vähän lisätty
+
+ tiedosto.txt | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+commit e5b0e74f73ab6f932370966a49f158271f37b7f8
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:11:56 2018 +0200
+
+    paljon tekstiä
+
+ tiedosto.txt | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+commit 64f77ce4adb6aa90f9c9b32ae3d1a0ce7caf9279
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 15:00:43 2018 +0200
+
+    stuff lisätty
+
+ stuff/jokintiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 461a1ffba851a1d161b0ef5756cb7a2125526eab
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 14:59:38 2018 +0200
+
+    muokattu
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 9f63263e0bc1100859761992b68f5f3578617c2f
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 14:57:55 2018 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit d3b8dfca91976a8bf0bd2d42c552a4a7e21e7f61
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 14:42:01 2018 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 87256d2b01af607cacad89f14f9af8372aba6277
+Author: hallssus <susanna.hallsten@helsinki.fi>
+Date:   Wed Mar 14 14:16:32 2018 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
