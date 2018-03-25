@@ -6,9 +6,11 @@ public class Kassapaate {
     private int kassassaRahaa;
     private int edulliset;
     private int maukkaat;
-
+    
+    //tehtävänannossa sanottiin, että rahaa piti olla alussa 1000
+    //joten tein juuri niin, toivottavasti tämä ei ollut virhe
     public Kassapaate() {
-        this.kassassaRahaa = 100000;
+        this.kassassaRahaa = 1000;
     }
 
     public int syoEdullisesti(int maksu) {
