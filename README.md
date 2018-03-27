@@ -4,6 +4,14 @@ Tehtävänämme on nähdä, miten *Markdown* notaatiot toimivat. Vai toimivatko 
 
 *Luodaan epämukava tilanne kun github ja git eivät ole samalla aaltopituudella*
 
+# Harjoitustyö
+
+## Dokumentaatio
+
+### Alustava vaatimusraportti
+
+[vaatimusmaarittely.md](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
 # Viikottaiset palautukset
 
 ### Viikko 1
