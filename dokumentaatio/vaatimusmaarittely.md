@@ -6,6 +6,7 @@ Sovellus on jo kaikille tuttu Matopeli pienellä tvistillä. Peliä voi pelata j
 Sovelluksessa on toiminnallisuus rekisteröityä ennen pelin alkua haluamallaan käyttäjätunnuksella, johon tallennetaan pelin jälkeen pistetilanne. Kaksinpelille ja yksinpelille on omat listansa pelin jälkeisistä tuloksista, ja vain 20 parasta käyttäjää tallennetaan.
 ## Käyttöliittymäluonnos
 Sovellus koostuu kolmesta eri näkymästä. Ensimmäisenä on alkuvalikko, jossa päätetään haluaako yksin- vai kaksinpelin antamalla tekstikenttiin joko yhden tai kaksi käyttäjätunnusta. Seuraavaksi on tietenkin itse pelikenttä. Pelin päätyttyä siirrytään pistetilannenäkymään, jossa listataan 20 parasta käyttäjätunnusta pisteineen.
+
 ## Perusversion tarjoama toiminnallisuus
 Mikäli käyttäjätunnus on jo annettu aikaisemmassa pelissä, oletetaan kyseessä olevan sama tyyppi ja kirjoitetaan uuden pelin tulos aikaisemma päälle, mikäli aikaisemmat pisteet on ylitetty. 
 ## Jatkokehitysideoita

@@ -8,6 +8,8 @@ Tehtävänämme on nähdä, miten *Markdown* notaatiot toimivat. Vai toimivatko 
 
 ## Dokumentaatio
 
+[Linkki] dokumentaatiokansioon (https://github.com/hallssus/omt-harjoitustyo/tree/master/dokumentaatio)
+
 ### Alustava vaatimusraportti
 
 [vaatimusmaarittely.md](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
