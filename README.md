@@ -8,7 +8,7 @@ Tehtävänämme on nähdä, miten *Markdown* notaatiot toimivat. Vai toimivatko 
 
 ## Dokumentaatio
 
-[Linkki] dokumentaatiokansioon (https://github.com/hallssus/omt-harjoitustyo/tree/master/dokumentaatio)
+[Dokumentaatiokansio](https://github.com/hallssus/omt-harjoitustyo/tree/master/dokumentaatio)
 
 ### Alustava vaatimusraportti
 
