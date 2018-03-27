@@ -14,6 +14,8 @@ Tehtävänämme on nähdä, miten *Markdown* notaatiot toimivat. Vai toimivatko 
 
 [vaatimusmaarittely.md](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
+### [Työaikakirjanpito](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+
 # Viikottaiset palautukset
 
 ### Viikko 1
