@@ -26,7 +26,7 @@ public class WormTest {
     
     @Before
     public void setUp() {
-        worm = new Worm(8, 0, Direction.RIGHT);
+        worm = new Worm(3, 0, Direction.RIGHT);
     }
     
     @After
@@ -40,6 +40,20 @@ public class WormTest {
         worm.move();
         worm.move();
         assertTrue(worm.getLength() == 3);
+    }
+    
+    @Test
+    public void locationInTheBeginningIsRight(){
+        assertTrue(worm.getHeadX() == 3 && worm.getHeadY() == 0);
+    }
+    
+    @Test
+    public void hitsAPieceWorks(){
+        Piece piece = new Piece(5, 0);
+        worm.move(); //(4,0)
+        worm.move(); //(5,0)
+        boolean isHit = worm.hitsAPiece(piece);
+        assertTrue(isHit == true);
     }
     
     

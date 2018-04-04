@@ -103,5 +103,18 @@ public class Worm {
         }
         return false;
     }
+    
+    public void grow(){
+        this.length++;
+    }
+    
+    public boolean hitsAPiece(Piece piece){
+        for (Piece part : this.pieces){
+            if (part.getX() == piece.getX() && part.getY() == piece.getY()){
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
