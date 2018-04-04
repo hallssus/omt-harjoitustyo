@@ -35,7 +35,7 @@ public class Piece {
         this.y = y;
     }
     
-    public boolean osuukoAnnettuun(Piece pala){
+    public boolean hitsAnother(Piece pala){
         if (this.x == pala.getX() && this.y == pala.getY()){
             return true;
         } else {
