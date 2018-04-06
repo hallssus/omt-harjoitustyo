@@ -81,7 +81,7 @@ public class Worm {
 
         int newx = pieces.get(pieces.size() - 1).getX() + wherex;
         int newy = pieces.get(pieces.size() - 1).getY() + wherey;
-
+        
         pieces.add(new Piece(newx, newy)); //adds a new block to the end of the list to give illution of movement
         if (this.length < pieces.size()) { //we'll need this later because eating causes lenght to increase.
             if (this.pieces.size() > 3) { //so that the first three moves make the worm as big as it is.
@@ -109,8 +109,29 @@ public class Worm {
     }
     
     public boolean hitsAPiece(Piece piece){
+        
         for (Piece part : this.pieces){
+            
             if (part.getX() == piece.getX() && part.getY() == piece.getY()){
+                
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean hitsALeftOrRightWall(int x){
+        for (Piece part : this.pieces){
+            if (part.getX() == x){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean hitsUpOrDownWall(int y){
+        for (Piece part : this.pieces){
+            if (part.getY() == y){
                 return true;
             }
         }
