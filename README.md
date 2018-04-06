@@ -1,33 +1,23 @@
-# Tässäpä otsikko
 
-Tehtävänämme on nähdä, miten *Markdown* notaatiot toimivat. Vai toimivatko ne **ollenkaan**?
 
-*Luodaan epämukava tilanne kun github ja git eivät ole samalla aaltopituudella*
-
-# Harjoitustyö
+# OTM-harjoitustyö: Snake
 
 ## Dokumentaatio
 
-[Dokumentaatiokansio](https://github.com/hallssus/omt-harjoitustyo/tree/master/dokumentaatio)
+[Vaatimusmaarittely](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-### Alustava vaatimusraportti
+[Työaikakirjanpito](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
-[vaatimusmaarittely.md](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+## Komentorivitoiminnot
 
-### [Työaikakirjanpito](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+### Testaus
 
-# Viikottaiset palautukset
+Testaus suoritetaan komennolla
 
-### Viikko 1
+	mvn test
 
-[komentorivi.txt](https://github.com/hallssus/omt-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+Testikattavuusraportti luodaan komennolla
 
-[gitlot.txt](https://github.com/hallssus/omt-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+	mvn jacoco:report
 
-### Viikko 2
-
-[Maksukortti](https://github.com/hallssus/omt-harjoitustyo/tree/master/laskarit/viikko2/Maksukortti)
-
-[Unicafe](https://github.com/hallssus/omt-harjoitustyo/tree/master/laskarit/viikko2/Unicafe)
-
-![Kattavuusraportti](https://github.com/hallssus/omt-harjoitustyo/blob/master/laskarit/viikko2/kattavuus.png)
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto *target/site/jacoco/index.html*
