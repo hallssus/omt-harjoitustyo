@@ -101,4 +101,8 @@ public class Snake {
         return text;
     }
 
+    public Apple getApple() {
+        return this.apple;
+    }
+
 }
