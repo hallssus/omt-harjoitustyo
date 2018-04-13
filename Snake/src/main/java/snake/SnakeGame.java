@@ -98,8 +98,10 @@ public class SnakeGame extends Application{
                 snake.getWorm2().setDirection(Direction.DOWN);
             } else if (e.getCode().equals(KeyCode.D)){
                 snake.getWorm2().setDirection(Direction.RIGHT);
-            } else if (e.getCode().equals(KeyCode.R)){
+            } else if (e.getCode().equals(KeyCode.K)){
+                //in case you want to quit
                 snake.setIsOn(false);
+                
             }
                 
             
@@ -112,7 +114,7 @@ public class SnakeGame extends Application{
     
         public static void main(String[] args) {
 
-        launch(SnakeGame.class);
+        launch(args);
         
     }
     

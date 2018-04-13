@@ -137,5 +137,17 @@ public class Worm {
         }
         return false;
     }
+    
+    public boolean hitsAWorm(Worm worm){
+        for (Piece piece : this.pieces){
+            for (Piece piece2 : worm.getPieces()){
+                if (piece.getX() == piece2.getX() && piece.getY() == piece2.getY()){
+                    return true;
+                }
+            }
+            
+        }
+        return false;
+    }
 
 }

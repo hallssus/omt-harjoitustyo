@@ -14,11 +14,11 @@ public class Snake {
 
     private ArrayList<Worm> worms;
 
-    public Snake(int height, int width, int number) {
+    public Snake(int height, int width, int numberofworms) {
 
         this.height = height;
         this.width = width;
-        this.numberOfWorms = number;
+        this.numberOfWorms = numberofworms;
         if (this.numberOfWorms > 1) {
             worm = new Worm(width / 2, height / 3 * 2, Direction.RIGHT);
             worm2 = new Worm(width / 2, height / 3, Direction.LEFT);
@@ -43,6 +43,10 @@ public class Snake {
             this.isOn = true;
 
         }
+    }
+
+    public int getNumberOfWorms() {
+        return numberOfWorms;
     }
 
     public String getAppleCoordinates() {
@@ -111,11 +115,13 @@ public class Snake {
     }
 
     public void update() {
-        for (Worm wormie : this.worms) {
-            if (this.isOn) {
-                wormie.move();
+        if (this.worms.size()>1){
+            if (this.worms.get(0).hitsAWorm(this.worms.get(1))){
+                this.isOn = false;
             }
-
+        }
+        for (Worm wormie : this.worms) {
+            
             if (wormie.hitsItself()) {
                 this.isOn = false;
 
@@ -134,6 +140,9 @@ public class Snake {
             } else if (wormie.hitsAPiece(apple)) {
                 wormie.grow();
                 setNewApple();
+            }
+            if (this.isOn) {
+                wormie.move();
             }
         }
     }
