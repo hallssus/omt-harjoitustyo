@@ -18,14 +18,14 @@ public class SnakeGame extends Application{
     
     public void start(Stage window){
         int width = 50;
-        int height = 40;
+        int height = 30;
         //size of one square = 20 px;
         int sizeofsquare = 20;
         
         Canvas canvas = new Canvas(width*20, height*20);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
         
-        Snake snake = new Snake(height, width);
+        Snake snake = new Snake(height, width, 2);
         
         new AnimationTimer() {
             private long previous;
@@ -36,13 +36,22 @@ public class SnakeGame extends Application{
                 }
                 previous = now;
                 drawer.setFill(Color.BLACK);
-                drawer.fillRect(0, 0, width*20, height*20);
-                drawer.setFill(Color.WHITE);
+                drawer.fillRect(0, 0, width*sizeofsquare, height*sizeofsquare);
+                drawer.setFill(Color.FUCHSIA);
                 
                 if (!snake.getIsOn()){
-                    drawer.setFill(Color.BEIGE);
+                    drawer.setFill(Color.PINK);
                 }
                 snake.getWorm().getPieces().stream().forEach(piece -> {
+                    drawer.fillRect(piece.getX()*sizeofsquare, piece.getY()*sizeofsquare, sizeofsquare, sizeofsquare);
+                });
+                
+                if (!snake.getIsOn()){
+                    drawer.setFill(Color.ALICEBLUE);
+                }
+                
+                drawer.setFill(Color.AQUA);
+                snake.getWorm2().getPieces().stream().forEach(piece -> {
                     drawer.fillRect(piece.getX()*sizeofsquare, piece.getY()*sizeofsquare, sizeofsquare, sizeofsquare);
                 });
                 drawer.setFill(Color.RED);
@@ -55,7 +64,7 @@ public class SnakeGame extends Application{
             private long previous;
             @Override
             public void handle(long now) {
-                if (now - previous < 1000000000/10){
+                if (now - previous < 2E8){
                     return;
                 }
                 previous=now;
@@ -72,10 +81,28 @@ public class SnakeGame extends Application{
         
         Scene view = new Scene(scenery);
         
-        view.setOnKeyPressed((event) -> {
-            if (event.getCode().equals(KeyCode.UP)){
+        view.setOnKeyPressed((e) -> {
+            if (e.getCode().equals(KeyCode.UP)){
                 snake.getWorm().setDirection(Direction.UP);
-            } //muut nappulat
+            } else if (e.getCode().equals(KeyCode.DOWN)){
+                snake.getWorm().setDirection(Direction.DOWN);
+            } else if (e.getCode().equals(KeyCode.LEFT)){
+                snake.getWorm().setDirection(Direction.LEFT);
+            } else if (e.getCode().equals(KeyCode.RIGHT)){
+                snake.getWorm().setDirection(Direction.RIGHT);
+            } else if (e.getCode().equals(KeyCode.W)){
+                snake.getWorm2().setDirection(Direction.UP);
+            } else if (e.getCode().equals(KeyCode.A)){
+                snake.getWorm2().setDirection(Direction.LEFT);
+            } else if (e.getCode().equals(KeyCode.S)){
+                snake.getWorm2().setDirection(Direction.DOWN);
+            } else if (e.getCode().equals(KeyCode.D)){
+                snake.getWorm2().setDirection(Direction.RIGHT);
+            } else if (e.getCode().equals(KeyCode.R)){
+                snake.setIsOn(false);
+            }
+                
+            
         });
         
         window.setScene(view);

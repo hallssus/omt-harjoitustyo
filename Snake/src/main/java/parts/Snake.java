@@ -8,12 +8,28 @@ public class Snake {
     private int width;
     private boolean isOn;
     private Worm worm;
+    private Worm worm2;
     private Apple apple;
+    private int numberOfWorms;
 
-    public Snake(int height, int width) {
-        worm = new Worm(width / 2, height / 2, Direction.RIGHT);
+    private ArrayList<Worm> worms;
+
+    public Snake(int height, int width, int number) {
+
         this.height = height;
         this.width = width;
+        this.numberOfWorms = number;
+        if (this.numberOfWorms > 1) {
+            worm = new Worm(width / 2, height / 3 * 2, Direction.RIGHT);
+            worm2 = new Worm(width / 2, height / 3, Direction.LEFT);
+            worms = new ArrayList<>();
+            worms.add(worm);
+            worms.add(worm2);
+        } else {
+            worm = new Worm(width / 2, height / 2, Direction.RIGHT);
+            worms = new ArrayList<>();
+            worms.add(worm);
+        }
         boolean applePlaceNotOk = true;
         while (applePlaceNotOk) { //if it hits the worm its not ok
             int x = new Random().nextInt(width);
@@ -45,6 +61,31 @@ public class Snake {
         return worm;
     }
 
+    public Worm getWorm2() {
+        return worm2;
+    }
+    
+    
+//puts an apple to a random place
+
+    public void setNewApple() {
+        int x = 0;
+        int y = 0;
+        boolean hits = true;
+        while (hits) {
+            x = new Random().nextInt(width);
+            y = new Random().nextInt(height);
+            System.out.println("x: " + x);
+            System.out.println("y: " + y);
+            if (!worm.hitsAPiece(new Piece(x, y))) {
+                hits = false;
+                break;
+            }
+        }
+        this.apple.setX(x);
+        this.apple.setY(y);
+    }
+
     public void setApple(Apple apple) {
         this.apple = apple;
     }
@@ -70,30 +111,34 @@ public class Snake {
     }
 
     public void update() {
-        if (this.isOn) {
-            this.worm.move();
+        for (Worm wormie : this.worms) {
+            if (this.isOn) {
+                wormie.move();
+            }
+
+            if (wormie.hitsItself()) {
+                this.isOn = false;
+
+            } else if (wormie.hitsALeftOrRightWall(-1)) {
+                this.isOn = false;
+
+            } else if (wormie.hitsALeftOrRightWall(width)) {
+                this.isOn = false;
+
+            } else if (wormie.hitsUpOrDownWall(-1)) {
+                this.isOn = false;
+
+            } else if (wormie.hitsUpOrDownWall(height)) {
+                this.isOn = false;
+
+            } else if (wormie.hitsAPiece(apple)) {
+                wormie.grow();
+                setNewApple();
+            }
         }
-
-        if (worm.hitsItself()) {
-            this.isOn = false;
-
-        } else if (worm.hitsALeftOrRightWall(0)) {
-            this.isOn = false;
-
-        } else if (worm.hitsALeftOrRightWall(width)) {
-            this.isOn = false;
-
-        } else if (worm.hitsUpOrDownWall(0)) {
-            this.isOn = false;
-
-        } else if (worm.hitsUpOrDownWall(height)) {
-            this.isOn = false;
-
-        } else if (worm.hitsAPiece(apple)) {
-            worm.grow();
-        }
-
     }
+    
+    
 
     @Override
     public String toString() {
