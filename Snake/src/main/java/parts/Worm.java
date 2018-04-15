@@ -81,7 +81,7 @@ public class Worm {
 
         int newx = pieces.get(pieces.size() - 1).getX() + wherex;
         int newy = pieces.get(pieces.size() - 1).getY() + wherey;
-        
+
         pieces.add(new Piece(newx, newy)); //adds a new block to the end of the list to give illution of movement
         if (this.length < pieces.size()) { //we'll need this later because eating causes lenght to increase.
             if (this.pieces.size() > 3) { //so that the first three moves make the worm as big as it is.
@@ -103,49 +103,49 @@ public class Worm {
         }
         return false;
     }
-    
-    public void grow(){
+
+    public void grow() {
         this.length++;
     }
-    
-    public boolean hitsAPiece(Piece piece){
-        
-        for (Piece part : this.pieces){
-            
-            if (part.getX() == piece.getX() && part.getY() == piece.getY()){
-                
+
+    public boolean hitsAPiece(Piece piece) {
+
+        for (Piece part : this.pieces) {
+
+            if (part.getX() == piece.getX() && part.getY() == piece.getY()) {
+
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean hitsALeftOrRightWall(int x){
-        for (Piece part : this.pieces){
-            if (part.getX() == x){
+
+    public boolean hitsALeftOrRightWall(int x) {
+        for (Piece part : this.pieces) {
+            if (part.getX() == x) {
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean hitsUpOrDownWall(int y){
-        for (Piece part : this.pieces){
-            if (part.getY() == y){
+
+    public boolean hitsUpOrDownWall(int y) {
+        for (Piece part : this.pieces) {
+            if (part.getY() == y) {
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean hitsAWorm(Worm worm){
-        for (Piece piece : this.pieces){
-            for (Piece piece2 : worm.getPieces()){
-                if (piece.getX() == piece2.getX() && piece.getY() == piece2.getY()){
+
+    public boolean hitsAWorm(Worm worm) {
+        for (Piece piece : this.pieces) {
+            for (Piece piece2 : worm.getPieces()) {
+                if (piece.getX() == piece2.getX() && piece.getY() == piece2.getY()) {
                     return true;
                 }
             }
-            
+
         }
         return false;
     }

@@ -68,10 +68,8 @@ public class Snake {
     public Worm getWorm2() {
         return worm2;
     }
-    
-    
-//puts an apple to a random place
 
+//puts an apple to a random place
     public void setNewApple() {
         int x = 0;
         int y = 0;
@@ -115,13 +113,13 @@ public class Snake {
     }
 
     public void update() {
-        if (this.worms.size()>1){
-            if (this.worms.get(0).hitsAWorm(this.worms.get(1))){
+        if (this.worms.size() > 1) {
+            if (this.worms.get(0).hitsAWorm(this.worms.get(1))) {
                 this.isOn = false;
             }
         }
         for (Worm wormie : this.worms) {
-            
+
             if (wormie.hitsItself()) {
                 this.isOn = false;
 
@@ -146,8 +144,6 @@ public class Snake {
             }
         }
     }
-    
-    
 
     @Override
     public String toString() {

@@ -18,45 +18,43 @@ import static org.junit.Assert.*;
  * @author hallssus
  */
 public class WormTest {
-    
+
     public WormTest() {
     }
-    
+
     Worm worm;
-    
+
     @Before
     public void setUp() {
         worm = new Worm(3, 0, Direction.RIGHT);
     }
-    
+
     @After
     public void tearDown() {
     }
-    
+
     @Test
-    public void sizeIsThreeAfterMoving(){
+    public void sizeIsThreeAfterMoving() {
         worm.move();
         worm.move();
         worm.move();
         worm.move();
         assertTrue(worm.getLength() == 3);
     }
-    
+
     @Test
-    public void locationInTheBeginningIsRight(){
+    public void locationInTheBeginningIsRight() {
         assertTrue(worm.getHeadX() == 3 && worm.getHeadY() == 0);
     }
-    
+
     @Test
-    public void hitsAPieceWorks(){
+    public void hitsAPieceWorks() {
         Piece piece = new Piece(5, 0);
         worm.move(); //(4,0)
         worm.move(); //(5,0)
         boolean isHit = worm.hitsAPiece(piece);
         assertTrue(isHit == true);
     }
-    
-    
 
 //    @Test
 //    public void hitsItselfReturnsTrueIfHit(){

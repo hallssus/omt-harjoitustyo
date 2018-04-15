@@ -17,32 +17,31 @@ import static org.junit.Assert.*;
  * @author hallssus
  */
 public class SnakeTest {
-    
+
     Snake snake;
-    
+
     public SnakeTest() {
     }
-    
+
     @Before
     public void setUp() {
         snake = new Snake(10, 10, 1);
     }
-    
+
     @After
     public void tearDown() {
     }
 
     @Test
-    public void amountOfWormsWorks(){
+    public void amountOfWormsWorks() {
         snake = new Snake(10, 10, 2);
         assertTrue(snake.getNumberOfWorms() == 2);
     }
-    
+
     @Test
-    public void updateWorks(){
+    public void updateWorks() {
         snake.update();
         assertTrue(snake.getIsOn() == true);
     }
-    
-    
+
 }

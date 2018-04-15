@@ -10,7 +10,7 @@ package parts;
  * @author hallssus
  */
 public class Piece {
-    
+
     private int x;
     private int y;
 
@@ -34,9 +34,9 @@ public class Piece {
     public void setY(int y) {
         this.y = y;
     }
-    
-    public boolean hitsAnother(Piece pala){
-        if (this.x == pala.getX() && this.y == pala.getY()){
+
+    public boolean hitsAnother(Piece pala) {
+        if (this.x == pala.getX() && this.y == pala.getY()) {
             return true;
         } else {
             return false;
@@ -47,7 +47,5 @@ public class Piece {
     public String toString() {
         return "(" + x + "," + y + ")";
     }
-    
-    
-    
+
 }
