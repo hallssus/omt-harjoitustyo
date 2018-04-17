@@ -1,4 +1,4 @@
-package parts;
+package snake.parts;
 
 public enum Direction {
 

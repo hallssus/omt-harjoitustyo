@@ -1,4 +1,4 @@
-package parts;
+package snake.parts;
 
 public class Apple extends Piece {
 

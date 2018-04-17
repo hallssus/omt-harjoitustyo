@@ -8,5 +8,5 @@
 | 10.4  | 1 h           | Main-metodin ajaminen toimii nyt, mutta ainoastaan ylösnuolinäppäin toimii, en ehtiny laittaa kaikki suuntia vielä. |
 | 13.4  | 5.5 h         | Nyt toinen mato lisätty, sekä hieman huomattuja virheitä korjattu. Lisäksi tein snake-luokkaan hiukan testejä, ja tarkistin, ettei käyttöliittymäluokkaa tarkisteta jacocon testikattavuusraportissa.
 | 15.4  | 1 h           | Checkstylen avulla koodi nätiksi. Lisäksi loin luokkakaavion projektistani ja laitoin githubin etusivun yms kuntoon. 
-| 17.4  | 2 h           | Käyttöliittymään lisätty valintanappeja alkuun sekä ohjeita. Lisäksi koodia vähän siistitty.
-| yht   | 14.5 h        |  
+| 17.4  | 2.5 h         | Käyttöliittymään lisätty valintanappeja alkuun sekä ohjeita. Lisäksi koodia vähän siistitty.
+| yht   | 15 h          |  

@@ -1,4 +1,4 @@
-package parts;
+package snake.parts;
 
 import java.util.*;
 

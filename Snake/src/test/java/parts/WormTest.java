@@ -5,6 +5,9 @@
  */
 package parts;
 
+import snake.parts.Worm;
+import snake.parts.Piece;
+import snake.parts.Direction;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

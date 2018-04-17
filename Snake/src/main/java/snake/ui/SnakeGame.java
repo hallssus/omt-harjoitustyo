@@ -1,4 +1,4 @@
-package snake;
+package snake.ui;
 
 import javafx.scene.control.Button;
 import java.util.Scanner;
@@ -13,9 +13,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-import parts.Apple;
-import parts.Snake;
-import parts.Direction;
+import snake.parts.Apple;
+import snake.parts.Snake;
+import snake.parts.Direction;
 
 public class SnakeGame extends Application {
 
