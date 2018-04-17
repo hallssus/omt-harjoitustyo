@@ -66,7 +66,11 @@ public class Snake {
     }
 
     public Worm getWorm2() {
-        return worm2;
+        if (worms.size() > 1) {
+            return worm2;
+        } else {
+            return worm;
+        }
     }
 
 //puts an apple to a random place
