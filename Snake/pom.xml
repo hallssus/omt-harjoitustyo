@@ -41,7 +41,7 @@
                 <version>0.8.0</version>
                 <configuration>
                     <excludes>
-                        <exclude>snake/*</exclude>
+                        <exclude>snake/ui/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
