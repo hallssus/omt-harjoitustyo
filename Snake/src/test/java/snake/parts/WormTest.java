@@ -59,16 +59,35 @@ public class WormTest {
         assertTrue(isHit == true);
     }
 
-//    @Test
-//    public void hitsItselfReturnsTrueIfHit(){
-//        worm.move();
-//        worm.setDirection(Direction.DOWN);
-//        worm.move();
-//        worm.setDirection(Direction.LEFT);
-//        worm.move();
-//        worm.setDirection(Direction.UP);
-//        worm.move();
-//        boolean hit = worm.hitsItself();
-//        assertTrue(hit == true);
-//    }
+    @Test
+    public void hitsItselfReturnsTrueIfHit(){
+        worm.setDirection(Direction.RIGHT);
+        worm.grow();
+        worm.move();
+        worm.grow();
+        worm.move();
+        worm.grow();
+        worm.move();
+        worm.grow();
+        worm.setDirection(Direction.DOWN);
+        worm.move();
+        worm.setDirection(Direction.LEFT);
+        worm.move();
+        worm.setDirection(Direction.UP);
+        worm.move();
+        boolean hit = worm.hitsItself();
+        assertTrue(hit == true);
+    }
+    
+    @Test
+    public void getLengthWorks(){
+        worm.move();
+        worm.move();
+        worm.move();
+        worm.move();
+        worm.grow();
+        worm.move();
+        System.out.println(worm.getLength());
+        assertTrue(worm.getLength() == 4);
+    }
 }

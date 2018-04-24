@@ -9,8 +9,10 @@ public class Worm {
     private int startY;
     private int length;
     private Direction direction;
+    private boolean isDead;
 
     public Worm(int x, int y, Direction initdir) {
+        this.isDead = false;
         this.startX = x;
         this.startY = y;
         this.direction = initdir;
@@ -34,7 +36,7 @@ public class Worm {
     }
 
     public int getLength() {
-        return pieces.size();
+        return this.length;
     }
 
     public ArrayList<Piece> getPieces() {
@@ -97,6 +99,7 @@ public class Worm {
                 int x = this.pieces.get(i).getX();
                 int y = this.pieces.get(i).getY();
                 if (j != i && x == this.pieces.get(j).getX() && y == this.pieces.get(j).getY()) {
+                    this.isDead = true;
                     return true;
                 }
             }
@@ -123,6 +126,7 @@ public class Worm {
     public boolean hitsALeftOrRightWall(int x) {
         for (Piece part : this.pieces) {
             if (part.getX() == x) {
+                this.isDead = true;
                 return true;
             }
         }
@@ -132,6 +136,7 @@ public class Worm {
     public boolean hitsUpOrDownWall(int y) {
         for (Piece part : this.pieces) {
             if (part.getY() == y) {
+                this.isDead = true;
                 return true;
             }
         }
@@ -142,12 +147,21 @@ public class Worm {
         for (Piece piece : this.pieces) {
             for (Piece piece2 : worm.getPieces()) {
                 if (piece.getX() == piece2.getX() && piece.getY() == piece2.getY()) {
+                    this.isDead = true;
                     return true;
                 }
             }
 
         }
         return false;
+    }
+
+    public boolean getIsIsDead() {
+        return isDead;
+    }
+
+    public void setIsDead(boolean isDead) {
+        this.isDead = isDead;
     }
 
 }

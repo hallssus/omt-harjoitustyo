@@ -19,15 +19,14 @@ public class Snake {
         this.height = height;
         this.width = width;
         this.numberOfWorms = numberofworms;
+        worms = new ArrayList<>();
         if (this.numberOfWorms > 1) {
             worm = new Worm(width / 2, height / 3 * 2, Direction.RIGHT);
             worm2 = new Worm(width / 2, height / 3, Direction.LEFT);
-            worms = new ArrayList<>();
             worms.add(worm);
             worms.add(worm2);
         } else {
             worm = new Worm(width / 2, height / 2, Direction.RIGHT);
-            worms = new ArrayList<>();
             worms.add(worm);
         }
         boolean applePlaceNotOk = true;
@@ -96,14 +95,6 @@ public class Snake {
         this.apple = apple;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     public void setIsOn(boolean isOn) {
         this.isOn = isOn;
     }
@@ -125,18 +116,23 @@ public class Snake {
         for (Worm wormie : this.worms) {
 
             if (wormie.hitsItself()) {
+                wormie.setIsDead(true);
                 this.isOn = false;
 
             } else if (wormie.hitsALeftOrRightWall(-1)) {
+                wormie.setIsDead(true);
                 this.isOn = false;
 
             } else if (wormie.hitsALeftOrRightWall(width)) {
+                wormie.setIsDead(true);
                 this.isOn = false;
 
             } else if (wormie.hitsUpOrDownWall(-1)) {
+                wormie.setIsDead(true);
                 this.isOn = false;
 
             } else if (wormie.hitsUpOrDownWall(height)) {
+                wormie.setIsDead(true);
                 this.isOn = false;
 
             } else if (wormie.hitsAPiece(apple)) {
@@ -159,4 +155,26 @@ public class Snake {
         return this.apple;
     }
 
+    public int getWorm1length() {
+        return this.worm.getLength();
+    }
+
+    public int getWorm2length() {
+
+        if (this.worms.size() > 1) {
+            return this.worm2.getLength();
+        } else {
+            return 0;
+        }
+    }
+
+//muuta myöhemmin sellaseksi, että jos madot kuolevat samaan aikaan, molemmat häviävät tms
+    public Worm getLoser() {
+        for (Worm wormie : this.worms) {
+            if (wormie.getIsIsDead() == true) {
+                return wormie;
+            }
+        }
+        return this.worm;
+    }
 }

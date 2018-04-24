@@ -10,6 +10,10 @@
 
 [Arkkitehtuurikuvaus](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Releaset
+
+[Viikko 5](https://github.com/hallssus/omt-harjoitustyo/releases)
+
 ## Komentorivitoiminnot
 
 ### Testaus

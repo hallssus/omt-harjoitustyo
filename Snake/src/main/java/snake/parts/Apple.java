@@ -6,9 +6,4 @@ public class Apple extends Piece {
         super(x, y);
     }
 
-    @Override
-    public String toString() {
-        return "(" + super.getX() + "," + super.getY() + ")";
-    }
-
 }

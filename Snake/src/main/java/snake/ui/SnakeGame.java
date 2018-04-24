@@ -10,14 +10,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import snake.parts.Apple;
 import snake.parts.Snake;
 import snake.parts.Direction;
+import snake.parts.Worm;
 
 public class SnakeGame extends Application {
+
+    public int seconds;
 
     public void start(Stage window) {
         Button single = new Button("Alone :(");
@@ -56,8 +60,8 @@ public class SnakeGame extends Application {
 
         //if the other button is pressed
         duel.setOnAction((duelevent) -> {
-            
-            Label duelexplanation = new Label("Player 1 is the blue worm and uses WASD. Player 2 is the pink worm and uses arrows.");
+
+            Label duelexplanation = new Label("Player 1 is the pink worm and uses arrows. Player 2 is the blue worm and uses WASD.");
             Button gotitbutton = new Button("Got it!");
             BorderPane duelpregame = new BorderPane();
             duelpregame.setTop(duelexplanation);
@@ -66,11 +70,11 @@ public class SnakeGame extends Application {
 
             window.setScene(duelprescene);
             window.show();
-            
+
             gotitbutton.setOnAction((gogo) -> {
                 goSnakeGo(window, 2);
             });
-            
+
         });
 
     }
@@ -88,16 +92,30 @@ public class SnakeGame extends Application {
         //size of one square = 20 px;
         int sizeofsquare = 20;
 
-        Canvas canvas = new Canvas(width * 20, height * 20);
+        Button scores = new Button("To scores");
+
+        Canvas canvas = new Canvas(width * sizeofsquare, height * sizeofsquare);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
 
         Snake snake = new Snake(height, width, numberOfSnakes);
+
+        scores.setOnAction((endgame) -> {
+            snake.setIsOn(false);
+            int player1Length = snake.getWorm1length();
+            int player2Length = snake.getWorm2length();
+            System.out.println(player2Length);
+            Worm worm1 = snake.getWorm();
+            Worm worm2 = snake.getWorm2();
+            setScoreWindow(window, player1Length, player2Length, worm1, worm2);
+
+        });
 
         new AnimationTimer() {
             private long previous;
 
             @Override
             public void handle(long now) {
+                //this is how often it is updatet
                 if (now - previous < 1000000000 / 60) {
                     return;
                 }
@@ -127,19 +145,40 @@ public class SnakeGame extends Application {
                 drawer.fillRect(apple.getX() * sizeofsquare, apple.getY() * sizeofsquare, sizeofsquare, sizeofsquare);
             }
         }.start();
+        //this calculates time
+        new AnimationTimer() {
+
+            private long starttime = 0;
+
+            @Override
+            public void handle(long now) {
+                if (starttime != 0) {
+                    if (now > starttime + 1_000_000_000) {
+                        seconds++;
+                        starttime = now;
+                    }
+                } else {
+                    starttime = now;
+
+                }
+            }
+        }.start();
 
         new AnimationTimer() {
             private long previous;
 
             @Override
             public void handle(long now) {
+                //this is how fast the snake moves
                 if (now - previous < 2E8) {
                     return;
                 }
                 previous = now;
                 snake.update();
                 if (!snake.getIsOn()) {
+
                     stop();
+
                 }
 
             }
@@ -147,6 +186,7 @@ public class SnakeGame extends Application {
 
         BorderPane scenery = new BorderPane();
         scenery.setCenter(canvas);
+        scenery.setTop(scores);
 
         Scene view = new Scene(scenery);
 
@@ -175,6 +215,41 @@ public class SnakeGame extends Application {
 
         });
         window.setScene(view);
+        window.show();
+    }
+
+    public void setScoreWindow(Stage window, int player1length, int player2length, Worm worm1, Worm worm2) {
+        BorderPane endwindow = new BorderPane();
+        Label endtext = new Label("Game over! Here are the scores:");
+        Label player1 = new Label("Player 1:");
+        Label player2 = new Label("Player 2:");
+
+        endwindow.setTop(endtext);
+        
+        int scorefor1 = seconds * player1length;
+        if (worm1.getIsIsDead() == true){
+            scorefor1 = scorefor1 - 10;
+        }
+        String strScore1  = "" + scorefor1;
+        Label score1 = new Label(strScore1);
+        VBox forPlayerOne = new VBox(8);
+        forPlayerOne.getChildren().addAll(player1, score1);
+        endwindow.setLeft(forPlayerOne);
+        if (player2length != 0) {
+            int scorefor2 = seconds * player2length;
+        if (worm2.getIsIsDead() == true){
+            scorefor2 = scorefor2 - 10;
+        }
+            String strScore2 = "" + scorefor2;
+            Label score2 = new Label(strScore2);
+            VBox forPlayerTwo = new VBox(8);
+            forPlayerTwo.getChildren().addAll(player2, score2);
+            endwindow.setRight(forPlayerTwo);
+        }
+
+        Scene afterscene = new Scene(endwindow);
+
+        window.setScene(afterscene);
         window.show();
     }
 

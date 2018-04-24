@@ -43,9 +43,4 @@ public class Piece {
         }
     }
 
-    @Override
-    public String toString() {
-        return "(" + x + "," + y + ")";
-    }
-
 }

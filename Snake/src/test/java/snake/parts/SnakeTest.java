@@ -44,5 +44,12 @@ public class SnakeTest {
         snake.update();
         assertTrue(snake.getIsOn() == true);
     }
+    
+    @Test
+    public void setNewAppleWorks(){
+        snake.setNewApple();
+        boolean hits = snake.getWorm().hitsAPiece(snake.getApple());
+        assertTrue(hits == false);
+    }
 
 }
