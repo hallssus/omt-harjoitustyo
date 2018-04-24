@@ -9,4 +9,5 @@
 | 13.4  | 5.5 h         | Nyt toinen mato lisätty, sekä hieman huomattuja virheitä korjattu. Lisäksi tein snake-luokkaan hiukan testejä, ja tarkistin, ettei käyttöliittymäluokkaa tarkisteta jacocon testikattavuusraportissa.
 | 15.4  | 1 h           | Checkstylen avulla koodi nätiksi. Lisäksi loin luokkakaavion projektistani ja laitoin githubin etusivun yms kuntoon. 
 | 17.4  | 2.5 h         | Käyttöliittymään lisätty valintanappeja alkuun sekä ohjeita. Lisäksi koodia ja repositorioita vähän siistitty. Muutin luokkien nimiä vähän niin piti uusia pom ja checkstyle. Tein myös pakettikaavion projektilleni.
-| yht   | 15 h          |  
+| 24.4  | 6 h           | Edistin projektia kertomalla pisteet pelin loppussa. Lisäksi loin lisää testejä. Tein myös sekvenssikaavion update-metodille.
+| yht   | 21 h          |  
