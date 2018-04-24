@@ -81,8 +81,8 @@ public class Snake {
         while (hits) {
             x = new Random().nextInt(width);
             y = new Random().nextInt(height);
-            System.out.println("x: " + x);
-            System.out.println("y: " + y);
+            //System.out.println("x: " + x);
+            //System.out.println("y: " + y);
             if (!worm.hitsAPiece(new Piece(x, y))) {
                 hits = false;
                 break;
