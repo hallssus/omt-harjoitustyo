@@ -10,8 +10,10 @@ public class Worm {
     private int length;
     private Direction direction;
     private boolean isDead;
+    private String playername;
 
-    public Worm(int x, int y, Direction initdir) {
+    public Worm(int x, int y, Direction initdir, String player) {
+        this.playername = player;
         this.isDead = false;
         this.startX = x;
         this.startY = y;
@@ -25,6 +27,10 @@ public class Worm {
 
     public int getHeadX() {
         return startX;
+    }
+
+    public String getPlayername() {
+        return playername;
     }
 
     public int getHeadY() {

@@ -8,6 +8,7 @@ import javafx.animation.*;
 import javafx.application.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -45,15 +46,21 @@ public class SnakeGame extends Application {
             Label explanation = new Label("Use WASD or arrows to move!");
             Button gotitbutton = new Button("Got it!");
             BorderPane pregame = new BorderPane();
+            TextField player1name = new TextField();
+            VBox nameandfield = new VBox(8);
+            Label playername = new Label("Player name:");
+            nameandfield.getChildren().addAll(playername, player1name);
+            
+            pregame.setLeft(nameandfield);
             pregame.setTop(explanation);
-            pregame.setCenter(gotitbutton);
+            pregame.setBottom(gotitbutton);
             Scene prescene = new Scene(pregame);
 
             window.setScene(prescene);
             window.show();
 
             gotitbutton.setOnAction((go) -> {
-                goSnakeGo(window, 1);
+                goSnakeGo(window, 1, player1name.getText());
             });
 
         });
@@ -63,16 +70,20 @@ public class SnakeGame extends Application {
 
             Label duelexplanation = new Label("Player 1 is the pink worm and uses arrows. Player 2 is the blue worm and uses WASD.");
             Button gotitbutton = new Button("Got it!");
+            TextField player1name = new TextField();
+            TextField player2name = new TextField();
             BorderPane duelpregame = new BorderPane();
             duelpregame.setTop(duelexplanation);
-            duelpregame.setCenter(gotitbutton);
+            duelpregame.setLeft(player1name);
+            duelpregame.setRight(player2name);
+            duelpregame.setBottom(gotitbutton);
             Scene duelprescene = new Scene(duelpregame);
-
+            
             window.setScene(duelprescene);
             window.show();
 
             gotitbutton.setOnAction((gogo) -> {
-                goSnakeGo(window, 2);
+                goSnakeGo(window, 2, player1name.getText());
             });
 
         });
@@ -85,7 +96,7 @@ public class SnakeGame extends Application {
 
     }
 
-    public void goSnakeGo(Stage window, int numberOfSnakes) {
+    public void goSnakeGo(Stage window, int numberOfSnakes, String plr1name) {
 
         int width = 50;
         int height = 30;
@@ -97,7 +108,7 @@ public class SnakeGame extends Application {
         Canvas canvas = new Canvas(width * sizeofsquare, height * sizeofsquare);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
 
-        Snake snake = new Snake(height, width, numberOfSnakes);
+        Snake snake = new Snake(height, width, numberOfSnakes, "", "");
 
         scores.setOnAction((endgame) -> {
             snake.setIsOn(false);

@@ -14,19 +14,19 @@ public class Snake {
 
     private ArrayList<Worm> worms;
 
-    public Snake(int height, int width, int numberofworms) {
+    public Snake(int height, int width, int numberofworms, String name1, String name2) {
 
         this.height = height;
         this.width = width;
         this.numberOfWorms = numberofworms;
         worms = new ArrayList<>();
         if (this.numberOfWorms > 1) {
-            worm = new Worm(width / 2, height / 3 * 2, Direction.RIGHT);
-            worm2 = new Worm(width / 2, height / 3, Direction.LEFT);
+            worm = new Worm(width / 2, height / 3 * 2, Direction.RIGHT, name1);
+            worm2 = new Worm(width / 2, height / 3, Direction.LEFT, name2);
             worms.add(worm);
             worms.add(worm2);
         } else {
-            worm = new Worm(width / 2, height / 2, Direction.RIGHT);
+            worm = new Worm(width / 2, height / 2, Direction.RIGHT, name1);
             worms.add(worm);
         }
         boolean applePlaceNotOk = true;
