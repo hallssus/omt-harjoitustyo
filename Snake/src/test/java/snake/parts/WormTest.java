@@ -29,7 +29,7 @@ public class WormTest {
 
     @Before
     public void setUp() {
-        worm = new Worm(3, 0, Direction.RIGHT);
+        worm = new Worm(3, 0, Direction.RIGHT, "");
     }
 
     @After

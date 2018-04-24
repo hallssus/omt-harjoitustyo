@@ -26,7 +26,7 @@ public class SnakeTest {
 
     @Before
     public void setUp() {
-        snake = new Snake(10, 10, 1);
+        snake = new Snake(10, 10, 1, "", "");
     }
 
     @After
@@ -35,7 +35,7 @@ public class SnakeTest {
 
     @Test
     public void amountOfWormsWorks() {
-        snake = new Snake(10, 10, 2);
+        snake = new Snake(10, 10, 2, "", "");
         assertTrue(snake.getNumberOfWorms() == 2);
     }
 

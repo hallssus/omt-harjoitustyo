@@ -9,5 +9,5 @@
 | 13.4  | 5.5 h         | Nyt toinen mato lisätty, sekä hieman huomattuja virheitä korjattu. Lisäksi tein snake-luokkaan hiukan testejä, ja tarkistin, ettei käyttöliittymäluokkaa tarkisteta jacocon testikattavuusraportissa.
 | 15.4  | 1 h           | Checkstylen avulla koodi nätiksi. Lisäksi loin luokkakaavion projektistani ja laitoin githubin etusivun yms kuntoon. 
 | 17.4  | 2.5 h         | Käyttöliittymään lisätty valintanappeja alkuun sekä ohjeita. Lisäksi koodia ja repositorioita vähän siistitty. Muutin luokkien nimiä vähän niin piti uusia pom ja checkstyle. Tein myös pakettikaavion projektilleni.
-| 24.4  | 6 h           | Edistin projektia kertomalla pisteet pelin loppussa. Lisäksi loin lisää testejä. Tein myös sekvenssikaavion update-metodille.
-| yht   | 21 h          |  
+| 24.4  | 7 h           | Edistin projektia kertomalla pisteet pelin loppussa. Lisäksi loin lisää testejä. Tein myös sekvenssikaavion update-metodille. Viimeisenä vielä päivitin README:n. Toistaiseksi vielä matopelini kysyy vain pelaajien nimiä, muttei tee nimillä vielä mitään, sillä en ehtiny tehdä tätä loppuun asti. Se seuraavaksi.
+| yht   | 22 h          |  

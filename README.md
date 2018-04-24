@@ -35,3 +35,11 @@ Komento
 	mvn package
 
 generoi hakemistoon target suoritettavan jar-tiedoston *Snake-1.0-SNAPSHOT.jar*
+
+### Checkstyle
+
+Tiedostoon (Checkstyle.xml)[https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/checkstyle.xml] määrittelevät tarkistukset suoritetaan komennolla
+
+	mvn jxr:jxr checkstyle:checkstyle
+
+Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto *target/site/checkstyle.html*
