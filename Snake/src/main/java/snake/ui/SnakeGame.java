@@ -1,7 +1,12 @@
 package snake.ui;
 
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.scene.control.Button;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.canvas.*;
 import javafx.stage.*;
 import javafx.animation.*;
@@ -14,6 +19,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import snake.database.Database;
+import snake.database.ScoreDao;
 
 import snake.parts.Apple;
 import snake.parts.Snake;
@@ -22,9 +29,20 @@ import snake.parts.Worm;
 
 public class SnakeGame extends Application {
 
-    public int seconds;
+    private int seconds;
+    private ScoreDao scoreDao;
+    private Database database;
 
-    public void start(Stage window) {
+    public static void main(String[] args) {
+
+        launch(args);
+
+    }
+
+    public void start(Stage window) throws Exception {
+        database = new Database("jdbc:sqlite:database.db");
+        scoreDao = new ScoreDao(database);
+
         Button single = new Button("Alone :(");
         Button duel = new Button("With a friend! ");
 
@@ -41,7 +59,7 @@ public class SnakeGame extends Application {
         window.setScene(scene);
         window.show();
 
-        single.setOnAction((singleevent) -> {
+        single.setOnAction(singleevent -> {
 
             Label explanation = new Label("Use WASD or arrows to move!");
             Button gotitbutton = new Button("Got it!");
@@ -50,7 +68,7 @@ public class SnakeGame extends Application {
             VBox nameandfield = new VBox(8);
             Label playername = new Label("Player name:");
             nameandfield.getChildren().addAll(playername, player1name);
-            
+
             pregame.setLeft(nameandfield);
             pregame.setTop(explanation);
             pregame.setBottom(gotitbutton);
@@ -60,7 +78,7 @@ public class SnakeGame extends Application {
             window.show();
 
             gotitbutton.setOnAction((go) -> {
-                goSnakeGo(window, 1, player1name.getText());
+                goSnakeGo(window, 1, player1name.getText(), "");
             });
 
         });
@@ -78,25 +96,19 @@ public class SnakeGame extends Application {
             duelpregame.setRight(player2name);
             duelpregame.setBottom(gotitbutton);
             Scene duelprescene = new Scene(duelpregame);
-            
+
             window.setScene(duelprescene);
             window.show();
 
             gotitbutton.setOnAction((gogo) -> {
-                goSnakeGo(window, 2, player1name.getText());
+                goSnakeGo(window, 2, player1name.getText(), player2name.getText());
             });
 
         });
 
     }
 
-    public static void main(String[] args) {
-
-        launch(args);
-
-    }
-
-    public void goSnakeGo(Stage window, int numberOfSnakes, String plr1name) {
+    public void goSnakeGo(Stage window, int numberOfSnakes, String plr1name, String plr2name) {
 
         int width = 50;
         int height = 30;
@@ -108,16 +120,21 @@ public class SnakeGame extends Application {
         Canvas canvas = new Canvas(width * sizeofsquare, height * sizeofsquare);
         GraphicsContext drawer = canvas.getGraphicsContext2D();
 
-        Snake snake = new Snake(height, width, numberOfSnakes, "", "");
+        Snake snake = new Snake(height, width, numberOfSnakes, plr1name, plr2name);
 
         scores.setOnAction((endgame) -> {
             snake.setIsOn(false);
-            int player1Length = snake.getWorm1length();
-            int player2Length = snake.getWorm2length();
-            System.out.println(player2Length);
+
+            try {
+                addPlayerToDatabase(plr1name, snake.getWorm1length() * seconds);
+                addPlayerToDatabase(plr2name, snake.getWorm2length() * seconds);
+            } catch (Exception ex) {
+                Logger.getLogger(SnakeGame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             Worm worm1 = snake.getWorm();
             Worm worm2 = snake.getWorm2();
-            setScoreWindow(window, player1Length, player2Length, worm1, worm2);
+            setScoreWindow(window, worm1, worm2);
 
         });
 
@@ -187,11 +204,8 @@ public class SnakeGame extends Application {
                 previous = now;
                 snake.update();
                 if (!snake.getIsOn()) {
-
                     stop();
-
                 }
-
             }
         }.start();
 
@@ -229,39 +243,79 @@ public class SnakeGame extends Application {
         window.show();
     }
 
-    public void setScoreWindow(Stage window, int player1length, int player2length, Worm worm1, Worm worm2) {
+    public void setScoreWindow(Stage window, Worm worm1, Worm worm2) {
+        int player1length = worm1.getLength();
+        int player2length = worm2.getLength();
         BorderPane endwindow = new BorderPane();
         Label endtext = new Label("Game over! Here are the scores:");
-        Label player1 = new Label("Player 1:");
-        Label player2 = new Label("Player 2:");
+
+        Label name1 = new Label(worm1.getPlayername());
+        Label name2 = new Label(worm2.getPlayername());
+
+        Button toHighScores = new Button("To Highscores!");
 
         endwindow.setTop(endtext);
-        
+
         int scorefor1 = seconds * player1length;
-        if (worm1.getIsIsDead() == true){
+        if (worm1.getIsIsDead() == true) {
             scorefor1 = scorefor1 - 10;
         }
-        String strScore1  = "" + scorefor1;
+        String strScore1 = worm1.getPlayername() + ": " + scorefor1;
         Label score1 = new Label(strScore1);
         VBox forPlayerOne = new VBox(8);
-        forPlayerOne.getChildren().addAll(player1, score1);
+        forPlayerOne.getChildren().addAll(score1);
         endwindow.setLeft(forPlayerOne);
         if (player2length != 0) {
             int scorefor2 = seconds * player2length;
-        if (worm2.getIsIsDead() == true){
-            scorefor2 = scorefor2 - 10;
-        }
+            if (worm2.getIsIsDead() == true) {
+                scorefor2 = scorefor2 - 10;
+            }
             String strScore2 = "" + scorefor2;
-            Label score2 = new Label(strScore2);
+            Label score2 = new Label(worm2.getPlayername() + ": " + strScore2);
+            Label nimi = new Label(worm2.getPlayername());
             VBox forPlayerTwo = new VBox(8);
-            forPlayerTwo.getChildren().addAll(player2, score2);
+            forPlayerTwo.getChildren().addAll(score2);
             endwindow.setRight(forPlayerTwo);
         }
+
+        endwindow.setBottom(toHighScores);
 
         Scene afterscene = new Scene(endwindow);
 
         window.setScene(afterscene);
         window.show();
+
+        toHighScores.setOnAction(e -> {
+            setHighScoreWindow(window);
+        });
+    }
+
+    void setHighScoreWindow(Stage window) {
+        BorderPane highScores = new BorderPane();
+        VBox playerbox = new VBox();
+        VBox scorebox = new VBox();
+        Map<String, Integer> scores = new HashMap();
+        try {
+            scores = scoreDao.findTenBest();
+        } catch (SQLException ex) {
+            Logger.getLogger(SnakeGame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        for (Map.Entry<String, Integer> entry : scores.entrySet()){
+            Label player = new Label(entry.getKey());
+            Label score = new Label("" + entry.getValue());
+            playerbox.getChildren().add(player);
+            scorebox.getChildren().add(score);
+        }
+        highScores.setLeft(playerbox);
+        highScores.setRight(scorebox);
+        Scene highScoreScene = new Scene(highScores);
+        window.setScene(highScoreScene);
+        window.show();
+    }
+
+    void addPlayerToDatabase(String player, Integer score) throws Exception {
+        scoreDao.save(player, score);
     }
 
 }

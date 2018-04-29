@@ -66,6 +66,7 @@ public class Snake {
 
     public Worm getWorm2() {
         if (worms.size() > 1) {
+            worm2.getPlayername();
             return worm2;
         } else {
             return worm;
