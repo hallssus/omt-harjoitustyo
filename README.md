@@ -2,7 +2,9 @@
 
 # OTM-harjoitustyö: Snake
 
-Sovellus on perinteinen matopeli, jota voi halutessaan pelata joko yksin nuolinäppäimillä tai WASDilla, tai kaverin kanssa, jolloin toinen on nuolinäppäimet ja toinen WASD. Alussa pelaajien nimet kysytään, pelaajat pelaavat pelin ja kuoleman jälkeen päästään katsomaan pisteitä klikkaamalla "To scores" näppäintä. Pisteet lasketaan kertomalla madon pituus kuluneella ajalla, paitsi jos on se mato joka on hävinnyt, miinustetaan tältä 10 pistettä. Pistelaskua täytyy vielä miettiä myöhemmässä vaiheessa. Lisäksi tavoitteenani on käyttää databasea listaamaan pelin high scoret. Jokin kiva erikoisominaisuus madoille olisi myös kiva, kuten esim. toisen madon ampumismahdollisuus. Myöhemmillä viikoilla sitten. 
+Sovellus on perinteinen matopeli, jota voi halutessaan pelata joko yksin nuolinäppäimillä tai WASDilla, tai kaverin kanssa, jolloin toinen on nuolinäppäimet ja toinen WASD.
+
+Alussa pelaajien nimet kysytään, pelaajat pelaavat pelin ja kuoleman jälkeen päästään katsomaan pisteitä klikkaamalla "To scores" näppäintä. Pisteet lasketaan kertomalla madon pituus kuluneella ajalla, paitsi jos on se mato joka on hävinnyt, miinustetaan tältä 10 pistettä. Tämä pistelaskutyyli on osoittautunut huonoksi, sillä pisteitä saa liian helposti vain hengailemalla pelissä tarpeeksi kauan, joten se täytyy tulevaisuudessa korjata. Pelaajan nimi ja tulos kirjoitetaan tietokantaan ja viimeinen ikkuna näyttää top-10 listan pelaajista. Jokin kiva erikoisominaisuus madoille olisi kiva tehdä vielä, kuten esim. toisen madon ampumismahdollisuus. Myöhemmillä viikoilla sitten. 
 
 ## Dokumentaatio
 
@@ -17,6 +19,7 @@ Sovellus on perinteinen matopeli, jota voi halutessaan pelata joko yksin nuolin�
 ## Releaset
 
 [Viikko 5](https://github.com/hallssus/omt-harjoitustyo/releases)
+[Viikko 6](https://github.com/hallssus/omt-harjoitustyo/releases/tag/Viikko6)
 
 ## Komentorivitoiminnot
 
@@ -47,3 +50,11 @@ Tiedostoon [Checkstyle.xml](https://github.com/hallssus/omt-harjoitustyo/blob/ma
 	mvn jxr:jxr checkstyle:checkstyle
 
 Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto *target/site/checkstyle.html*
+
+### JavaDoc
+
+JavaDoc generoidaan komennolla 
+
+	mvn javadoc:javadoc
+
+JavaDocia voi tarkastella avaamalla selaimella tiedosto *target/site/apidocs/index.html*
