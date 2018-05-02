@@ -343,7 +343,7 @@ public class SnakeGame extends Application {
         }
         highScores.setLeft(playerbox);
         highScores.setRight(scorebox);
-        Scene highScoreScene = new Scene(highScores);
+        Scene highScoreScene = new Scene(highScores, 200, 300);
         window.setScene(highScoreScene);
         window.show();
 

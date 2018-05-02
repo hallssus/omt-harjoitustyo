@@ -12,6 +12,8 @@ Sovellus on perinteinen matopeli, jota voi halutessaan pelata joko yksin nuolin�
 
 [Arkkitehtuurikuvaus](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Käyttöohje](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+
 ## Releaset
 
 [Viikko 5](https://github.com/hallssus/omt-harjoitustyo/releases)

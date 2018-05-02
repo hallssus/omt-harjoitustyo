@@ -12,4 +12,5 @@
 | 24.4  | 7 h           | Edistin projektia kertomalla pisteet pelin loppussa. Lisäksi loin lisää testejä. Tein myös sekvenssikaavion update-metodille. Viimeisenä vielä päivitin README:n. Toistaiseksi vielä matopelini kysyy vain pelaajien nimiä, muttei tee nimillä vielä mitään, sillä en ehtiny tehdä tätä loppuun asti. Se seuraavaksi.
 | 29.4	| 4 h		| Database, johon pelaajan nimi sekä pisteet merkitään lisätty. Lisäksi viimeinen näkymä, joka näyttää databasesta kymmenen parasta pelaajaa pisteineen lisätty. 
 | 2.5	| 2 h		| Tein testejä databaseen sekä kirjoitin JavaDocit monelle metodille. 
-| yht   | 28 h          |  
+|	| 4 h		| Tein dokumentaatioon käyttöohjeen sekä arkkitehtuurikuvausta. 
+| yht   | 32 h          |  
