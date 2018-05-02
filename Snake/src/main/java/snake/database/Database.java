@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    
+
     private boolean debug;
     private Connection connection;
 
@@ -82,5 +82,5 @@ public class Database {
 
         System.out.println();
     }
-    
+
 }

@@ -13,7 +13,11 @@ public class Piece {
 
     private int x;
     private int y;
-
+/**
+ * Constructor for the piece that all the worm consist of
+ * @param x X-coordinate
+ * @param y Y-coordinate
+ */
     public Piece(int x, int y) {
         this.x = x;
         this.y = y;
@@ -34,9 +38,13 @@ public class Piece {
     public void setY(int y) {
         this.y = y;
     }
-
-    public boolean hitsAnother(Piece pala) {
-        if (this.x == pala.getX() && this.y == pala.getY()) {
+/**
+ * Checks if the piece hits another piece
+ * @param piece The piece that might be hit
+ * @return True if the pieces hits each other
+ */
+    public boolean hitsAnother(Piece piece) {
+        if (this.x == piece.getX() && this.y == piece.getY()) {
             return true;
         } else {
             return false;

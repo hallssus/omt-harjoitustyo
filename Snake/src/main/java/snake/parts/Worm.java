@@ -12,6 +12,14 @@ public class Worm {
     private boolean isDead;
     private String playername;
 
+    /**
+     * The constructor for the worm
+     *
+     * @param x Starting position's x-coordinate
+     * @param y Starting position's y-coordinate
+     * @param initdir Initial direction for the worm.
+     * @param player The player's name.
+     */
     public Worm(int x, int y, Direction initdir, String player) {
         this.playername = player;
         this.isDead = false;
@@ -69,6 +77,9 @@ public class Worm {
         this.pieces = newpieces;
     }
 
+    /**
+     * Moves the worm in to the direction it has.
+     */
     public void move() {
         int wherex = 0;
         int wherey = 0;
@@ -99,7 +110,12 @@ public class Worm {
 
     }
 
-    public boolean hitsItself() { //returns true if the worm hits itself
+    /**
+     * A method that checks if the worm has hit itself and therefore id dead.
+     *
+     * @return True if the worm hits itself.
+     */
+    public boolean hitsItself() {
         for (int i = 0; i < this.pieces.size(); i++) {
             for (int j = 0; j < this.pieces.size(); j++) {
                 int x = this.pieces.get(i).getX();
@@ -117,6 +133,12 @@ public class Worm {
         this.length++;
     }
 
+    /**
+     * To check if the worm hits another piece (an apple, other worm)
+     *
+     * @param piece The piece that might be hit.
+     * @return True if the worm hits the piece.
+     */
     public boolean hitsAPiece(Piece piece) {
 
         for (Piece part : this.pieces) {
@@ -129,6 +151,13 @@ public class Worm {
         return false;
     }
 
+    /**
+     * Check if the worm has hit a wall and therefore died.
+     *
+     * @param x Declares if it's a left (x = 0) or right (x = width - 1) wall
+     * that is checked.
+     * @return True if the worm has hit a wall.
+     */
     public boolean hitsALeftOrRightWall(int x) {
         for (Piece part : this.pieces) {
             if (part.getX() == x) {
@@ -139,6 +168,13 @@ public class Worm {
         return false;
     }
 
+    /**
+     * Check if the worm has hit a wall and therefore died.
+     *
+     * @param y Declares if it's a up (y = 0) or down (y = height - 1) wall that
+     * is checked.
+     * @return True if the worm has hit a wall.
+     */
     public boolean hitsUpOrDownWall(int y) {
         for (Piece part : this.pieces) {
             if (part.getY() == y) {
@@ -147,8 +183,15 @@ public class Worm {
             }
         }
         return false;
+
     }
 
+    /**
+     * Checks if the worm has hit a piece in an other worm.
+     *
+     * @param worm That might be hit
+     * @return True if the worm hits another worm.
+     */
     public boolean hitsAWorm(Worm worm) {
         for (Piece piece : this.pieces) {
             for (Piece piece2 : worm.getPieces()) {

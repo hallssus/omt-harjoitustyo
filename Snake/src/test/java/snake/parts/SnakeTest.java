@@ -46,10 +46,33 @@ public class SnakeTest {
     }
     
     @Test
-    public void setNewAppleWorks(){
+    public void updateWorksIfHitsRightWall(){
+        snake.update();
+        snake.update();
+        snake.update();
+        snake.update();
+        snake.update();
+        snake.update();
+        assertTrue(snake.getIsOn() == false);
+    }
+
+    @Test
+    public void setNewAppleWorks() {
         snake.setNewApple();
         boolean hits = snake.getWorm().hitsAPiece(snake.getApple());
         assertTrue(hits == false);
+    }
+
+    @Test
+    public void getWorm2LengthWorksIfOnlyOneWorm() {
+        assertTrue(snake.getWorm2length() == 0);
+    }
+
+    @Test
+    public void getWorm2LengthWorksIfTwoWorms() {
+        snake = new Snake(10, 10, 2, "name1", "name2");
+        assertTrue(snake.getWorm2length() == 3);
+
     }
 
 }

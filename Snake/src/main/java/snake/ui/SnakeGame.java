@@ -27,6 +27,11 @@ import snake.parts.Snake;
 import snake.parts.Direction;
 import snake.parts.Worm;
 
+/**
+ * The main method that takes care if the animation and all the visuals.
+ *
+ * @author hallssus
+ */
 public class SnakeGame extends Application {
 
     private int seconds;
@@ -39,6 +44,12 @@ public class SnakeGame extends Application {
 
     }
 
+    /**
+     * Sets the startwindow
+     *
+     * @param window the window that everithing is being drawn to
+     *
+     */
     public void start(Stage window) throws Exception {
         database = new Database("jdbc:sqlite:database.db");
         scoreDao = new ScoreDao(database);
@@ -108,6 +119,14 @@ public class SnakeGame extends Application {
 
     }
 
+    /**
+     * Launches the Snake and animates it.
+     *
+     * @param window The window where to draw.
+     * @param numberOfSnakes Number of players, one or two.
+     * @param plr1name The name of the player one.
+     * @param plr2name The name of the player two.
+     */
     public void goSnakeGo(Stage window, int numberOfSnakes, String plr1name, String plr2name) {
 
         int width = 50;
@@ -127,7 +146,9 @@ public class SnakeGame extends Application {
 
             try {
                 addPlayerToDatabase(plr1name, snake.getWorm1length() * seconds);
-                addPlayerToDatabase(plr2name, snake.getWorm2length() * seconds);
+                if (numberOfSnakes > 1) {
+                    addPlayerToDatabase(plr2name, snake.getWorm2length() * seconds);
+                }
             } catch (Exception ex) {
                 Logger.getLogger(SnakeGame.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -243,6 +264,13 @@ public class SnakeGame extends Application {
         window.show();
     }
 
+    /**
+     * After the game is over this shows the played games scores.
+     *
+     * @param window The window that this is being drawn to
+     * @param worm1 Player 1's worm
+     * @param worm2 Player 2's worm
+     */
     public void setScoreWindow(Stage window, Worm worm1, Worm worm2) {
         int player1length = worm1.getLength();
         int player2length = worm2.getLength();
@@ -290,18 +318,24 @@ public class SnakeGame extends Application {
         });
     }
 
+    /**
+     * Max 10 best all time high scores are gotten from the database and shown.
+     *
+     * @param window The window that everything is being drawn to
+     */
     void setHighScoreWindow(Stage window) {
         BorderPane highScores = new BorderPane();
-        VBox playerbox = new VBox();
-        VBox scorebox = new VBox();
+        VBox playerbox = new VBox(15);
+        VBox scorebox = new VBox(15);
         Map<String, Integer> scores = new HashMap();
         try {
             scores = scoreDao.findTenBest();
         } catch (SQLException ex) {
             Logger.getLogger(SnakeGame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        for (Map.Entry<String, Integer> entry : scores.entrySet()){
+        System.out.println(scores);
+
+        for (Map.Entry<String, Integer> entry : scores.entrySet()) {
             Label player = new Label(entry.getKey());
             Label score = new Label("" + entry.getValue());
             playerbox.getChildren().add(player);
@@ -312,8 +346,16 @@ public class SnakeGame extends Application {
         Scene highScoreScene = new Scene(highScores);
         window.setScene(highScoreScene);
         window.show();
+
     }
 
+    /**
+     * Adds given player to the database
+     *
+     * @param player The name of the player
+     * @param score The score
+     *
+     */
     void addPlayerToDatabase(String player, Integer score) throws Exception {
         scoreDao.save(player, score);
     }

@@ -14,6 +14,16 @@ public class Snake {
 
     private ArrayList<Worm> worms;
 
+    /**
+     * Contructor to the Snake-game, that sets the apple and the worm(s) into a
+     * correct place and direction.
+     *
+     * @param height The height of the gameboard
+     * @param width The width of the gameboard
+     * @param numberofworms The number of worms, one or two.
+     * @param name1 The name of the player one
+     * @param name2 The name of the player two
+     */
     public Snake(int height, int width, int numberofworms, String name1, String name2) {
 
         this.height = height;
@@ -64,6 +74,11 @@ public class Snake {
         return worm;
     }
 
+    /**
+     * If there is only one worm in the game, returns that.
+     *
+     * @return Worm2
+     */
     public Worm getWorm2() {
         if (worms.size() > 1) {
             worm2.getPlayername();
@@ -73,7 +88,10 @@ public class Snake {
         }
     }
 
-//puts an apple to a random place
+    /**
+     * Puts an apple to a random place, if the apple hits the worm, then it's
+     * not okay and a new place is being randomly selected.
+     */
     public void setNewApple() {
         int x = 0;
         int y = 0;
@@ -108,6 +126,10 @@ public class Snake {
         return isOn;
     }
 
+    /**
+     * Updates the game: If a worm dies, the game will then stop and if the worm
+     * doesn't die, at the end of the method, the worm moves.
+     */
     public void update() {
         if (this.worms.size() > 1) {
             if (this.worms.get(0).hitsAWorm(this.worms.get(1))) {
@@ -146,12 +168,6 @@ public class Snake {
         }
     }
 
-    @Override
-    public String toString() {
-        String text = "Place of the worm:" + worm.getPieces().get(worm.getPieces().size() - 1) + ". Place of the apple: " + getAppleCoordinates();
-        return text;
-    }
-
     public Apple getApple() {
         return this.apple;
     }
@@ -160,6 +176,12 @@ public class Snake {
         return this.worm.getLength();
     }
 
+    /**
+     * If there is only one worm at the game, the length of that worm will be
+     * returned.
+     *
+     * @return length of the worm2
+     */
     public int getWorm2length() {
 
         if (this.worms.size() > 1) {
@@ -170,6 +192,11 @@ public class Snake {
     }
 
 //muuta myöhemmin sellaseksi, että jos madot kuolevat samaan aikaan, molemmat häviävät tms
+    /**
+     * In order to find put the loser, we need to know which worm has died.
+     *
+     * @return The worm that died.
+     */
     public Worm getLoser() {
         for (Worm wormie : this.worms) {
             if (wormie.getIsIsDead() == true) {
