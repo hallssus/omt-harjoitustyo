@@ -11,6 +11,8 @@ public class Worm {
     private Direction direction;
     private boolean isDead;
     private String playername;
+    private int speed;
+    private int boostcounter;
 
     /**
      * The constructor for the worm
@@ -21,6 +23,8 @@ public class Worm {
      * @param player The player's name.
      */
     public Worm(int x, int y, Direction initdir, String player) {
+        this.boostcounter = 0;
+        this.speed = 1;
         this.playername = player;
         this.isDead = false;
         this.startX = x;
@@ -70,7 +74,17 @@ public class Worm {
     }
 
     public void setDirection(Direction direction) {
-        this.direction = direction;
+        if (this.direction == Direction.DOWN && direction == Direction.UP) {
+            return;
+        } else if (this.direction == Direction.LEFT && direction == Direction.RIGHT) {
+            return;
+        } else if (this.direction == Direction.RIGHT && direction == Direction.LEFT) {
+            return;
+        } else if (this.direction == Direction.UP && direction == Direction.DOWN) {
+            return;
+        } else {
+            this.direction = direction;
+        }
     }
 
     public void setPieces(ArrayList<Piece> newpieces) {
@@ -81,33 +95,22 @@ public class Worm {
      * Moves the worm in to the direction it has.
      */
     public void move() {
-        int wherex = 0;
-        int wherey = 0;
-
+        int wherex = 0, wherey = 0;
         if (this.direction == Direction.DOWN) {
-            wherex = 0;
             wherey = 1;
         } else if (this.direction == Direction.LEFT) {
             wherex = -1;
-            wherey = 0;
         } else if (this.direction == Direction.RIGHT) {
             wherex = 1;
-            wherey = 0;
         } else if (this.direction == Direction.UP) {
-            wherex = 0;
             wherey = -1;
         }
-
-        int newx = pieces.get(pieces.size() - 1).getX() + wherex;
-        int newy = pieces.get(pieces.size() - 1).getY() + wherey;
-
-        pieces.add(new Piece(newx, newy)); //adds a new block to the end of the list to give illution of movement
+        pieces.add(new Piece(pieces.get(pieces.size() - 1).getX() + wherex, pieces.get(pieces.size() - 1).getY() + wherey)); //adds a new block to the end of the list to give illution of movement
         if (this.length < pieces.size()) { //we'll need this later because eating causes lenght to increase.
             if (this.pieces.size() > 3) { //so that the first three moves make the worm as big as it is.
                 pieces.remove(0); //lets delete the tail
             }
         }
-
     }
 
     /**
@@ -211,6 +214,22 @@ public class Worm {
 
     public void setIsDead(boolean isDead) {
         this.isDead = isDead;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
+    }
+
+    public int getBoostcounter() {
+        return boostcounter;
+    }
+
+    public void setBoostcounter(int boostcounter) {
+        this.boostcounter = boostcounter;
     }
 
 }

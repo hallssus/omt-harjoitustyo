@@ -24,7 +24,7 @@ public class ScoreDao {
     private Connection conn;
 
     /**
-     * The constructor for scoredao that handles the database.
+     * The constructor for ScoreDao that handles the database.
      *
      * @param database Our database's name
      * @throws SQLException Exception
@@ -35,20 +35,6 @@ public class ScoreDao {
     }
 
     /**
-     * Finds the high score from the database.
-     *
-     * @return A string that contains player and the score, (example:
-     * "player1name: 100")
-     * @throws SQLException Exception
-     */
-    public String findHighScore() throws SQLException {
-
-        PreparedStatement stat = conn.prepareStatement("SELECT * FROM Score ORDER BY score DESC LIMIT 1;");
-        ResultSet result = stat.executeQuery();
-        return result.getString("player") + ": " + result.getInt("score");
-    }
-
-    /**
      * Save the player and the score to database.
      *
      * @param player The player name
@@ -56,23 +42,95 @@ public class ScoreDao {
      * @throws SQLException Exception
      */
     public void save(String player, Integer score) throws SQLException {
-        database.update("INSERT INTO Score (player, score) VALUES(?, ?)", player, score);
+
+        database.update("INSERT INTO Score (player, score) VALUES(?, ?);", player, score);
     }
 
     /**
      * Finds ten best scores and their players from the database.
      *
-     * @return A hashmap that has the player names as keys and scores as values
+     * @return A list that has the player names and scores in it, separated with
+     * a ":"
      * @throws SQLException Exception
      */
-    public HashMap<String, Integer> findTenBest() throws SQLException {
+    public ArrayList<String> findTenBest() throws SQLException {
         PreparedStatement stat = conn.prepareStatement("SELECT * FROM Score ORDER BY score DESC LIMIT 10;");
         ResultSet result = stat.executeQuery();
-        HashMap<String, Integer> scores = new HashMap<>();
+        ArrayList<String> results = new ArrayList<>();
+
         while (result.next()) {
-            scores.put(result.getString("player"), result.getInt("score"));
+            String nameandscore = result.getString("player") + ":" + result.getInt("score");
+            results.add(nameandscore);
         }
-        return scores;
+        return results;
+    }
+
+    /**
+     * Deletes the worst score on the database
+     *
+     * @throws SQLException if something goes wrong
+     */
+    public void deleteWorstScore() throws SQLException {
+
+        PreparedStatement stat = conn.prepareStatement("SELECT * FROM Score ORDER BY score DESC;");
+        ResultSet result = stat.executeQuery();
+        ArrayList<String> scores = new ArrayList<>();
+
+        while (result.next()) {
+            String nameandscore = result.getString("player") + ":" + result.getInt("score");
+            scores.add(nameandscore);
+        }
+
+        String[] parts = scores.get(scores.size() - 1).split(":");
+        String smallestPlayer = parts[0];
+        this.database.update("DELETE FROM Score WHERE player = ?;", smallestPlayer);
+    }
+
+    /**
+     * Deletes the given palyer from the database
+     *
+     * @param player That will be deleted
+     * @throws SQLException
+     */
+    public void delete(String player) throws SQLException {
+        this.database.update("DELETE FROM Score WHERE player = ?", player);
+    }
+
+    /**
+     * Check if a player is in the database
+     *
+     * @param player That needs to be ckecked
+     * @return True if the player is found
+     * @throws SQLException if something goes wrong
+     */
+    public boolean contains(String player) throws SQLException {
+        PreparedStatement stat = conn.prepareStatement("SELECT * FROM Score;");
+        ResultSet result = stat.executeQuery();
+        ArrayList<String> scores = new ArrayList<>();
+        while (result.next()) {
+            scores.add(result.getString("player"));
+        }
+        if (scores.contains(player)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Gets the size of the database
+     *
+     * @return The size
+     * @throws SQLException if something goes wrong
+     */
+    public int getDatabaseSize() throws SQLException {
+        PreparedStatement stat = conn.prepareStatement("SELECT * FROM Score;");
+        ResultSet result = stat.executeQuery();
+        ArrayList<String> scores = new ArrayList<>();
+        while (result.next()) {
+            scores.add(result.getString("player"));
+        }
+        return scores.size();
     }
 
 }

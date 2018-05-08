@@ -13,4 +13,9 @@
 | 29.4	| 4 h		| Database, johon pelaajan nimi sekä pisteet merkitään lisätty. Lisäksi viimeinen näkymä, joka näyttää databasesta kymmenen parasta pelaajaa pisteineen lisätty. 
 | 2.5	| 2 h		| Tein testejä databaseen sekä kirjoitin JavaDocit monelle metodille. 
 |	| 4 h		| Tein dokumentaatioon käyttöohjeen sekä arkkitehtuurikuvausta. 
-| yht   | 32 h          |  
+| 4.5   | 3 h           | Korjasin, ettei mato voi enää tehdä u-käännöstä ja kuolla heti itseensä. Lisäksi tein pistelaskusta hiukan paremman, vieläkään se ei kyllä ole täydellinen. Tein myös tietokantaan ominaisuuden, ettei se tallenna sinne yli kymmentä (vai oliko se yhtätoista) high scorea.
+| 5.5   | 1 h           | Korjasin muutamia ohjelmasta löytyneitä bugeja.
+| 6.5   | 4 h           | Lisäsin boost-omenan kaksinpeliin, jee! Lisäksi madot nopeutuvat omenoita syödessä. 
+| 7.5   | 3 h 		| Korjasin tyhmiä bugeja, nyt pitäisi toimia ihan ok:sti. Lisäksi tein sikana testejä database-paketin luokille ScoreDao ja Database.
+| 8.5	| 3 h		| Parantelin graafista käyttöliittymää sekä tein siitä vähän nätimmän. Pistelasku pitäisi vielä saada paremmaksi, mutta en ole vielä varma miten sen tekisin.
+| yht   | 46 h          |  

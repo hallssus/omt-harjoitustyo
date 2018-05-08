@@ -26,7 +26,7 @@ public class SnakeTest {
 
     @Before
     public void setUp() {
-        snake = new Snake(10, 10, 1, "", "");
+        snake = new Snake(10, 10, "");
     }
 
     @After
@@ -35,24 +35,24 @@ public class SnakeTest {
 
     @Test
     public void amountOfWormsWorks() {
-        snake = new Snake(10, 10, 2, "", "");
+        snake = new Snake(10, 10, "", "");
         assertTrue(snake.getNumberOfWorms() == 2);
     }
 
     @Test
     public void updateWorks() {
-        snake.update();
+        snake.update(snake.getWorm());
         assertTrue(snake.getIsOn() == true);
     }
-    
+
     @Test
-    public void updateWorksIfHitsRightWall(){
-        snake.update();
-        snake.update();
-        snake.update();
-        snake.update();
-        snake.update();
-        snake.update();
+    public void updateWorksIfHitsRightWall() {
+        snake.update(snake.getWorm());
+        snake.update(snake.getWorm());
+        snake.update(snake.getWorm());
+        snake.update(snake.getWorm());
+        snake.update(snake.getWorm());
+        snake.update(snake.getWorm());
         assertTrue(snake.getIsOn() == false);
     }
 
@@ -70,7 +70,7 @@ public class SnakeTest {
 
     @Test
     public void getWorm2LengthWorksIfTwoWorms() {
-        snake = new Snake(10, 10, 2, "name1", "name2");
+        snake = new Snake(10, 10, "name1", "name2");
         assertTrue(snake.getWorm2length() == 3);
 
     }
