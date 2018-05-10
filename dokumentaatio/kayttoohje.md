@@ -17,7 +17,7 @@ Sovellus käynnistyy näkymään, jossa ensin kysytään, haluaako pelaaja pelat
 
 ### Yksinpeli
 
-![Ohjeet yksinpeliin]((https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpelinimi.png)
+![Ohjeet yksinpeliin](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpelinimi.png)
 
 Tähän kenttään pelaaja kirjoittaa haluamansa käyttäjätunnuksen. Yksinpelistä on kaksi versiota riippuen siitä, ruksittaako pelaaja Classic-painikkeen vai ei. Klassinen peli on normaali matopeli jossa mato kulkee kokoajan vakionopeudella. Ei-klassisessa pelissä mato nopeutuu jokaisen omenan myötä vähän, kunnes se saavuttaa maksiminopeutensa.
 
@@ -31,7 +31,7 @@ Näihin kenttiin pelaajat laittavat haluamansa käyttäjätunnukset näihin kent
 
 ### Yksinpeli
 
-![Yksinpeli]((https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpeli.png)
+![Yksinpeli](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpeli.png)
 
 ### Kaksinpeli
 
