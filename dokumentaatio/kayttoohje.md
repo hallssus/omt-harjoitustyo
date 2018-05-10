@@ -15,15 +15,29 @@ Sovellus käynnistyy näkymään, jossa ensin kysytään, haluaako pelaaja pelat
 
 ## Pelaajan tai pelaajien käyttäjätunnukset 
 
+### Yksinpeli
+
+![Ohjeet yksinpeliin]((https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpelinimi.png)
+
+Tähän kenttään pelaaja kirjoittaa haluamansa käyttäjätunnuksen. Yksinpelistä on kaksi versiota riippuen siitä, ruksittaako pelaaja Classic-painikkeen vai ei. Klassinen peli on normaali matopeli jossa mato kulkee kokoajan vakionopeudella. Ei-klassisessa pelissä mato nopeutuu jokaisen omenan myötä vähän, kunnes se saavuttaa maksiminopeutensa.
+
+### Kaksinpeli
+
 ![Ohjeet kahdestaan](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/ohjeetkahdestaan.png)
 
-Näihin kenttiin pelaajat laittavat haluamansa käyttäjätunnukset näihin kenttiin. Toistaiseksi kaksi samaa käyttäjätunnusta, tai aikaisemmin tietokannassa jo oleva nimi aiheuttaa hiukan erroreita koodissa. Korjaan tämän myöhemmin.
+Näihin kenttiin pelaajat laittavat haluamansa käyttäjätunnukset näihin kenttiin. 
 
 ## Pelaaminen
 
+### Yksinpeli
+
+![Yksinpeli]((https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpeli.png)
+
+### Kaksinpeli
+
 ![Itse peli](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/matopeli.png)
 
-Itse peli, joka toistaiseksi on vain iloinen peli siitä, kumpi saa ensimmäisenä omenan.
+Kaksinpeliversio, jossa vihreät omenat ovat nopeusboosteja, ja punaiset oikeita omenoita.
 
 ## Tulokset
 
@@ -35,4 +49,4 @@ Pelin jälkeen (tai sen aikana) voi painaa To scores-nappia, joka näyttää äs
 
 ![Highscoret](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/highscores.png)
 
-Viimeisenä näytetään kymmenen parasta pelaajaa pisteineen ruudussa. Toistaiseksi pelaajat eivät ole järjestyksessä, koska en ehtinyt korjata vikaa.
+Viimeisenä näytetään kymmenen parasta pelaajaa pisteineen ruudussa.
