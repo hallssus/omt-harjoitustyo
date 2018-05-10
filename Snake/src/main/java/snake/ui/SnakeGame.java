@@ -100,11 +100,11 @@ public class SnakeGame extends Application {
             pl1.getChildren().addAll(pl1n, player1name);
             pl2.getChildren().addAll(pl2n, player2name);
             
-//            duelpregame.setTop(texts);
-//            duelpregame.setLeft(pl1);
-//            duelpregame.setRight(pl2);
-//            duelpregame.setBottom(gotitbutton);
-            duelpregame.getChildren().addAll(texts, pl1, pl2, gotitbutton);
+            duelpregame.setTop(texts);
+            duelpregame.setLeft(pl1);
+            duelpregame.setRight(pl2);
+            duelpregame.setBottom(gotitbutton);
+
             Scene duelprescene = new Scene(duelpregame, 700, 150);
 
             window.setScene(duelprescene);

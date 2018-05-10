@@ -90,4 +90,26 @@ public class WormTest {
         System.out.println(worm.getLength());
         assertTrue(worm.getLength() == 4);
     }
+    
+    @Test
+    public void setDirectionWorksInAllDirections(){
+        worm.setDirection(Direction.LEFT);
+        assertTrue(worm.getDirection() != Direction.LEFT);
+        worm.setDirection(Direction.DOWN);
+        worm.setDirection(Direction.UP);
+        assertTrue(worm.getDirection() != Direction.UP);
+        worm.setDirection(Direction.RIGHT);
+        worm.setDirection(Direction.LEFT);
+        assertTrue(worm.getDirection() != Direction.LEFT);
+        worm.setDirection(Direction.UP);
+        worm.setDirection(Direction.DOWN);
+        assertTrue(worm.getDirection() != Direction.DOWN); 
+        worm.setDirection(Direction.LEFT);
+        worm.setDirection(Direction.RIGHT);
+        assertTrue(worm.getDirection() != Direction.RIGHT);
+    }
+    
+    public void hitsUpOrDownWallWorks(){
+        assertTrue(worm.hitsUpOrDownWall(3));
+    }
 }

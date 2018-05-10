@@ -44,4 +44,13 @@ public class PieceTest {
         assertTrue(piece.getY() == 8);
     }
     
+    @Test
+    public void hitsAnotherPieceWorks(){
+        Piece testPiece = new Piece(5, 5);
+        assertTrue(testPiece.hitsAnother(piece));
+        assertTrue(!new Piece(6, 5).hitsAnother(piece));
+        assertTrue(!new Piece(0, 0).hitsAnother(piece));
+        assertTrue(!new Piece(5, 6).hitsAnother(piece));
+   }
+    
 }

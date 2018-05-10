@@ -87,10 +87,6 @@ public class Worm {
         }
     }
 
-    public void setPieces(ArrayList<Piece> newpieces) {
-        this.pieces = newpieces;
-    }
-
     /**
      * Moves the worm in to the direction it has.
      */
