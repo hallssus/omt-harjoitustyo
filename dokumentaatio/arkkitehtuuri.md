@@ -38,5 +38,8 @@ Snake-luokan update-metodin sekvenssikaavio:
 Metodi siis tarkistaa onko mato osunut johonkin ja mikäli ei ole osunut mihinkään, se liikkuu omaan suuntaansa.
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
+### Sovellus
+Pelaajien nimet voivat olla jo valmiiksi tietokannassa, tai olla vaikka tyhjät, mikä on tietysti tyhmää.
+Pistelaskussa on toistaiseksi parantamisen varaa. 
 ### Käyttöliittymä
-Toistaiseksi viimeisenä näytettävä Highscores-lista ei ole parhausjärjestyksessä, mutta ehdin muuttamaan sen ensi viikkoon mennessä.
+Käyttöliittymä on kenties vähän tönkkö, eikä niin nätti kuin voisi.

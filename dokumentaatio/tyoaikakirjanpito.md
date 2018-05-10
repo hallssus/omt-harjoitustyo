@@ -18,4 +18,5 @@
 | 6.5   | 4 h           | Lisäsin boost-omenan kaksinpeliin, jee! Lisäksi madot nopeutuvat omenoita syödessä. 
 | 7.5   | 3 h 		| Korjasin tyhmiä bugeja, nyt pitäisi toimia ihan ok:sti. Lisäksi tein sikana testejä database-paketin luokille ScoreDao ja Database.
 | 8.5	| 3 h		| Parantelin graafista käyttöliittymää sekä tein siitä vähän nätimmän. Pistelasku pitäisi vielä saada paremmaksi, mutta en ole vielä varma miten sen tekisin.
-| yht   | 46 h          |  
+|10.5	| 2 h 		| Dokumentaatiota päivitetty.
+| yht   | 48 h          |  
