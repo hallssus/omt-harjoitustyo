@@ -164,7 +164,7 @@ public class Snake {
             this.isOn = false;
         } else if (wormie.hitsAPiece(apple)) {
             wormie.grow();
-            wormie.setSpeed(wormie.getSpeed() + 1);
+            wormie.setSpeed(wormie.getSpeed() + 2);
             setNewApple();
         }
         if (this.numberOfWorms > 1) {

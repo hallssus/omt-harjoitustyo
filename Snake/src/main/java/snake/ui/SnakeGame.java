@@ -194,6 +194,10 @@ public class SnakeGame extends Application {
                 drawer.setFill(Color.BLACK);
                 drawer.fillRect(0, 0, width * sizeofsquare, height * sizeofsquare);
 
+                drawer.setFill(Color.RED);
+                Apple apple = snake.getApple();
+                drawer.fillRect(apple.getX() * sizeofsquare, apple.getY() * sizeofsquare, sizeofsquare, sizeofsquare);
+                
                 drawer.setFill(Color.FUCHSIA);
                 if (!snake.getIsOn()) {
                     drawer.setFill(Color.PINK);
@@ -213,10 +217,7 @@ public class SnakeGame extends Application {
                     Boost boost = snake.getBoost();
                     drawer.fillRect(boost.getX() * sizeofsquare, boost.getY() * sizeofsquare, sizeofsquare, sizeofsquare);
                 }
-                drawer.setFill(Color.RED);
-                Apple apple = snake.getApple();
-                drawer.fillRect(apple.getX() * sizeofsquare, apple.getY() * sizeofsquare, sizeofsquare, sizeofsquare);
-
+                
             }
         }.start();
 
@@ -231,8 +232,8 @@ public class SnakeGame extends Application {
                 int speed = 5;
                 if (!classicbool) {
                     speed = snake.getWorm().getSpeed();
-                    if (speed > 12) {
-                        speed = 12;
+                    if (speed > 10) {
+                        speed = 10;
                     }
                 }
                 if (now - previous < 4E8 - 40000000 * speed) {
@@ -256,8 +257,8 @@ public class SnakeGame extends Application {
 
                     //this is how fast the snake moves
                     int speed = snake.getWorm2().getSpeed();
-                    if (speed > 11) {
-                        speed = 11;
+                    if (speed > 10) {
+                        speed = 10;
                     }
                     if (now - previous < 4E8 - 40000000 * speed) {
                         return;
