@@ -109,7 +109,20 @@ public class WormTest {
         assertTrue(worm.getDirection() != Direction.RIGHT);
     }
     
+    @Test
+    public void hitsAWormWorks(){
+        Worm wormie = new Worm(3, 0, Direction.LEFT, "testplayer");
+        assertTrue(worm.hitsAWorm(wormie));
+        assertFalse(worm.hitsAWorm(new Worm(1, 1, Direction.LEFT, "testplayer2")));
+    }
+    
+    @Test
     public void hitsUpOrDownWallWorks(){
-        assertTrue(worm.hitsUpOrDownWall(3));
+        assertTrue(worm.hitsUpOrDownWall(0));
+    }
+    
+    @Test
+    public void getIsDeadWorks(){
+        assertFalse(worm.getIsDead());
     }
 }

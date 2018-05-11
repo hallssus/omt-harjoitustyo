@@ -99,7 +99,7 @@ public class SnakeGame extends Application {
             BorderPane duelpregame = new BorderPane();
             pl1.getChildren().addAll(pl1n, player1name);
             pl2.getChildren().addAll(pl2n, player2name);
-            
+
             duelpregame.setTop(texts);
             duelpregame.setLeft(pl1);
             duelpregame.setRight(pl2);
@@ -256,8 +256,8 @@ public class SnakeGame extends Application {
 
                     //this is how fast the snake moves
                     int speed = snake.getWorm2().getSpeed();
-                    if (speed > 12) {
-                        speed = 12;
+                    if (speed > 11) {
+                        speed = 11;
                     }
                     if (now - previous < 4E8 - 40000000 * speed) {
                         return;
@@ -337,14 +337,14 @@ public class SnakeGame extends Application {
         endwindow.setTop(endtext);
 
         int scorefor1 = this.seconds + player1length * 2;
-        if (snake.getWorm().getIsIsDead() == true) {
-            if (scorefor1 - 20 > 0) {
-                scorefor1 = scorefor1 - 20;
+        if (snake.getWorm().getIsDead() == true) {
+            if (scorefor1 - 10 > 0) {
+                scorefor1 = scorefor1 - 10;
             } else {
                 scorefor1 = 0;
             }
         }
-        
+
         String strScore1 = snake.getWorm().getPlayername() + ": " + scorefor1;
         Label score1 = new Label(strScore1);
         VBox forPlayerOne = new VBox(10);
@@ -359,7 +359,7 @@ public class SnakeGame extends Application {
         endwindow.setLeft(forPlayerOne);
         if (player2length != 0) { // if there is only one player, pl2 length is 0
             int scorefor2 = this.seconds + player2length * 2;
-            if (snake.getWorm2().getIsIsDead() == true) {
+            if (snake.getWorm2().getIsDead() == true) {
                 if (scorefor2 - 20 > 0) {
                     scorefor2 = scorefor2 - 20;
                 } else {

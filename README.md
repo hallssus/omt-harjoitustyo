@@ -2,9 +2,9 @@
 
 # OTM-harjoitustyö: Snake
 
-Sovellus on perinteinen matopeli, jota voi halutessaan pelata joko yksin nuolinäppäimillä tai WASDilla, tai kaverin kanssa, jolloin toinen on nuolinäppäimet ja toinen WASD.
+Sovellus on perinteinen matopeli, jota voi halutessaan pelata joko yksin nuolinäppäimillä tai WASDilla, tai kaverin kanssa, jolloin toinen on nuolinäppäimet ja toinen WASD. Mikäli pelataan kaksipeliä, on pelissä normaalien omenoiden lisäksi boost-omenoita, jotka antavat madolle vähäksi aikaa nopeutta. Yksinpelistä on kaksi eri vaihtoehtoa: klassinen, jossa pelataan kokoajan vakionopeudella, sekä versio, missä mato nopeutuu jokaisen omenan jälkeen.
 
-Alussa pelaajien nimet kysytään, pelaajat pelaavat pelin ja kuoleman jälkeen päästään katsomaan pisteitä klikkaamalla "To scores" näppäintä. Pisteet lasketaan kertomalla madon pituus kuluneella ajalla, paitsi jos on se mato joka on hävinnyt, miinustetaan tältä 10 pistettä. Tämä pistelaskutyyli on osoittautunut huonoksi, sillä pisteitä saa liian helposti vain hengailemalla pelissä tarpeeksi kauan, joten se täytyy tulevaisuudessa korjata. Pelaajan nimi ja tulos kirjoitetaan tietokantaan ja viimeinen ikkuna näyttää top-10 listan pelaajista. Jokin kiva erikoisominaisuus madoille olisi kiva tehdä vielä, kuten esim. toisen madon ampumismahdollisuus. Myöhemmillä viikoilla sitten. 
+Alussa pelaajien nimet kysytään, pelaajat pelaavat pelin ja kuoleman jälkeen päästään katsomaan pisteitä klikkaamalla "To scores" näppäintä. Pisteet lasketaan kertomalla madon pituus kahdella ja siihen lisätään vielä kulunut aika. Jos on se mato joka on hävinnyt, miinustetaan tältä vielä 10 pistettä. Pelaajan nimi ja tulos kirjoitetaan tietokantaan ja viimeinen ikkuna näyttää top-10 listan pelaajista.  
 
 ## Dokumentaatio
 
@@ -16,9 +16,12 @@ Alussa pelaajien nimet kysytään, pelaajat pelaavat pelin ja kuoleman jälkeen 
 
 [Käyttöohje](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
+[Testausdokumentti](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/testaus.md)
+
 ## Releaset
 
 [Viikko 5](https://github.com/hallssus/omt-harjoitustyo/releases)
+
 [Viikko 6](https://github.com/hallssus/omt-harjoitustyo/releases/tag/Viikko6)
 
 ## Komentorivitoiminnot

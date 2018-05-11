@@ -38,17 +38,24 @@ public class Database {
 
         int changes = stmt.executeUpdate();
 
-        if (debug) {
-        }
         stmt.close();
 
         return changes;
     }
 
+    /**
+     * Get the connection
+     *
+     * @return The connection
+     * @throws SQLException if something goes wrong
+     */
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAddress);
     }
 
+    /**
+     * Initialize the database if there is not one already.
+     */
     private void init() {
         String sentences = null;
         sentences = sqliteCommands();
@@ -66,6 +73,11 @@ public class Database {
         }
     }
 
+    /**
+     * The commands to create the database.
+     *
+     * @return
+     */
     public String sqliteCommands() {
         return "PRAGMA foreign_keys=ON; "
                 + "CREATE TABLE Score (id integer PRIMARY KEY, player varchar(50), score integer);";

@@ -73,6 +73,11 @@ public class Worm {
         this.startY = headY;
     }
 
+    /**
+     * Sets the direction. It cannot be the opposite direction.
+     *
+     * @param direction The new wanted direction.
+     */
     public void setDirection(Direction direction) {
         if (this.direction == Direction.DOWN && direction == Direction.UP) {
             return;
@@ -204,7 +209,7 @@ public class Worm {
         return false;
     }
 
-    public boolean getIsIsDead() {
+    public boolean getIsDead() {
         return isDead;
     }
 

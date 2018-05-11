@@ -26,7 +26,7 @@ public class SnakeTest {
 
     @Before
     public void setUp() {
-        snake = new Snake(10, 10, "");
+        snake = new Snake(10, 10, "name1");
     }
 
     @After
@@ -75,4 +75,12 @@ public class SnakeTest {
 
     }
 
+    @Test
+    public void getWorm2Works(){
+        assertEquals("name1", snake.getWorm2().getPlayername());
+        Snake snakey = new Snake(10, 10, "name1", "name2");
+        String name2 = snakey.getWorm2().getPlayername();
+        assertEquals("name2", name2);
+    }
+    
 }

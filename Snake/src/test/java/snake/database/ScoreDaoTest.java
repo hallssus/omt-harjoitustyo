@@ -67,7 +67,7 @@ public class ScoreDaoTest {
 
     @Test
     public void deleteWorks() throws SQLException {
-        scoreDao.save("testpayer2", 100000);
+        scoreDao.save("testplayer2", 100000);
         scoreDao.delete("testplayer2");
         assertTrue(!scoreDao.contains("testplayer2"));
     }

@@ -87,7 +87,7 @@ public class ScoreDao {
     }
 
     /**
-     * Deletes the given palyer from the database
+     * Deletes the given player from the database
      *
      * @param player That will be deleted
      * @throws SQLException
@@ -99,7 +99,7 @@ public class ScoreDao {
     /**
      * Check if a player is in the database
      *
-     * @param player That needs to be ckecked
+     * @param player That needs to be checked
      * @return True if the player is found
      * @throws SQLException if something goes wrong
      */

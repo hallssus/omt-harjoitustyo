@@ -32,7 +32,7 @@ public class Snake {
         worms.add(worm);
         setNewApple();
         this.isOn = true;
-        
+
     }
 
     /**
@@ -94,21 +94,18 @@ public class Snake {
             if (this.numberOfWorms < 2) {
                 if (!worm.hitsAPiece(apple)) {
                     hits = false;
-                    break;
                 }
             } else {
                 if (!this.worm2.hitsAPiece(apple) && !this.worm.hitsAPiece(apple)) {
                     hits = false;
-                    break;
                 }
             }
         }
-        this.apple.setX(x);
-        this.apple.setY(y);
+        setApple(apple);
     }
 
     /**
-     * Sets new boost on the board into a random place
+     * Sets new boost on the board into a random place.
      */
     public void setNewBoost() {
         int x = 0, y = 0;
@@ -122,7 +119,6 @@ public class Snake {
                 hits = false;
                 break;
             }
-
         }
         this.boost.setX(x);
         this.boost.setY(y);
@@ -136,16 +132,8 @@ public class Snake {
         this.isOn = isOn;
     }
 
-    public void setWorm(Worm worm) {
-        this.worm = worm;
-    }
-
     public boolean getIsOn() {
         return isOn;
-    }
-
-    public int getTime() {
-        return time;
     }
 
     /**
@@ -180,20 +168,30 @@ public class Snake {
             setNewApple();
         }
         if (this.numberOfWorms > 1) {
-            if (wormie.hitsAPiece(boost)) {
-                oldspeed = wormie.getSpeed();
-                wormie.setBoostcounter(20);
-                setNewBoost();
-            }
-            if (wormie.getBoostcounter() > 0) {
-                wormie.setSpeed(8);
-                wormie.setBoostcounter(wormie.getBoostcounter() - 1);
-            } else {
-                wormie.setSpeed(oldspeed);
-            }
+            boost(wormie, oldspeed);
         }
         if (this.isOn) {
             wormie.move();
+        }
+    }
+
+    /**
+     * If a boost is eaten, the speed increases for a while.
+     *
+     * @param wormie The worm that's speed increases
+     * @param oldspeed The old speed of the worm
+     */
+    public void boost(Worm wormie, int oldspeed) {
+        if (wormie.hitsAPiece(boost)) {
+            oldspeed = wormie.getSpeed();
+            wormie.setBoostcounter(20);
+            setNewBoost();
+        }
+        if (wormie.getBoostcounter() > 0) {
+            wormie.setSpeed(8);
+            wormie.setBoostcounter(wormie.getBoostcounter() - 1);
+        } else {
+            wormie.setSpeed(oldspeed);
         }
     }
 
@@ -220,7 +218,6 @@ public class Snake {
         }
     }
 
-//muuta myöhemmin sellaseksi, että jos madot kuolevat samaan aikaan, molemmat häviävät tms
     /**
      * In order to find put the loser, we need to know which worm has died.
      *
@@ -228,7 +225,7 @@ public class Snake {
      */
     public Worm getLoser() {
         for (Worm wormie : this.worms) {
-            if (wormie.getIsIsDead() == true) {
+            if (wormie.getIsDead() == true) {
                 return wormie;
             }
         }
