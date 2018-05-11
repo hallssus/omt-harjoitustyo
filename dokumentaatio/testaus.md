@@ -1,8 +1,8 @@
 # Testausdokumentti
 
-Ohjelmaa on testattu sekä automatisoiduin yksikkö- ja integraatiotestein JUnitilla sekä manuaalisesti tapahtunein järjestelmätason testein.
+Ohjelmaa on testattu sekä automatisoiduin yksikkötestein JUnitilla sekä manuaalisesti tapahtunein järjestelmätason testein.
 
-## Yksikkö- ja integraatiotestaus
+## Yksikkötestaus
 
 ### Sovelluslogiikka
 
