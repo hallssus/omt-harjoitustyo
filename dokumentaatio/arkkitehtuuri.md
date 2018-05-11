@@ -24,14 +24,11 @@ Sovelluksen toiminnallisista kokonaisuuksista vastaa luokka Snake, joka rakentaa
 
 Luokka ScoreDao huolehtii tulosten kirjaamisesta tietokantaan ja sillä on myös metodeja parhaiden tulosten hakemisesta sieltä.
 
-
-
 Luokka-/pakkauskaavio:
 ![Luokkakaavio](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/pakettikaavio.png)
 
 ### Tietojen pysyväistallennus
 Pakkauksen snake.database luokat ScoreDao, Database sekä Collector hoitavat tietojen tallennuksen tietokantaan. 
-
 
 ### Päätoiminnallisuudet
 
@@ -42,6 +39,10 @@ Snake-luokan update-metodin sekvenssikaavio:
 
 Metodi siis tarkistaa onko mato osunut johonkin ja mikäli ei ole osunut mihinkään, se liikkuu omaan suuntaansa.
 
+#### Käyttäjän tuloksen tallentaminen tietokantaan
+
+Pelin loputtua mikäli pelaaja on saanut niin hyvän tuloksen, että se on kymmenen parhaan joukossa, tallennetaan tulos ja pelaajan nimi tietokantaan.
+![Saveplayer](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/addPlayerToDatabase.png)
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 ### Sovellus

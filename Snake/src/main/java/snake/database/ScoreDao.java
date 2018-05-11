@@ -42,7 +42,6 @@ public class ScoreDao {
      * @throws SQLException Exception
      */
     public void save(String player, Integer score) throws SQLException {
-
         database.update("INSERT INTO Score (player, score) VALUES(?, ?);", player, score);
     }
 
@@ -132,5 +131,4 @@ public class ScoreDao {
         }
         return scores.size();
     }
-
 }

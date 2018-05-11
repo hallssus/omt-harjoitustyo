@@ -197,7 +197,7 @@ public class SnakeGame extends Application {
                 drawer.setFill(Color.RED);
                 Apple apple = snake.getApple();
                 drawer.fillRect(apple.getX() * sizeofsquare, apple.getY() * sizeofsquare, sizeofsquare, sizeofsquare);
-                
+
                 drawer.setFill(Color.FUCHSIA);
                 if (!snake.getIsOn()) {
                     drawer.setFill(Color.PINK);
@@ -217,7 +217,7 @@ public class SnakeGame extends Application {
                     Boost boost = snake.getBoost();
                     drawer.fillRect(boost.getX() * sizeofsquare, boost.getY() * sizeofsquare, sizeofsquare, sizeofsquare);
                 }
-                
+
             }
         }.start();
 
