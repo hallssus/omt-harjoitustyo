@@ -236,12 +236,12 @@ public class Snake {
     public Boost getBoost() {
         return boost;
     }
-    
-    public int getTime(){
+
+    public int getTime() {
         return this.time;
     }
-    
-    public void setBoost(Boost boost){
+
+    public void setBoost(Boost boost) {
         this.boost = boost;
     }
 

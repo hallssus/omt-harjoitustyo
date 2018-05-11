@@ -35,4 +35,6 @@ Kaikki [määrittelydokumentin](https://github.com/hallssus/omt-harjoitustyo/blo
 ## Sovellukseen jääneet laatuongelmat
 
 Tyhjät pelaajan nimet ovat sallittuja toistaiseksi. Pelaajien nimissä ei saa olla kaksoispiste-merkkiä ":", sillä sitä käytetään kun tulostetaan asioita databasesta. Tämä siis tarkistetaan ohjelmassa, muttei minkäänlaista virheilmoitusta tule jos käyttäjä yrittää syöttää tällasen nimen, ohjelma ei vain mene eteenpäin. Tätä voisi selkeyttää, sillä kaikki eivät kuitenkaan jaksa lukea käyttöohjeita.
+Lisäksi minulle jäi yksi liian pitkä metodi Snake-luokkaan, mikä on vähän rumaa.
+
 
