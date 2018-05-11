@@ -20,9 +20,11 @@ Alussa pelaajien nimet kysytään, pelaajat pelaavat pelin ja kuoleman jälkeen 
 
 ## Releaset
 
-[Viikko 5](https://github.com/hallssus/omt-harjoitustyo/releases)
+[Viikko 5](https://github.com/hallssus/omt-harjoitustyo/releases/tag/viikko5)
 
 [Viikko 6](https://github.com/hallssus/omt-harjoitustyo/releases/tag/Viikko6)
+
+[Lopullinen palautus](https://github.com/hallssus/omt-harjoitustyo/releases/tag/final)
 
 ## Komentorivitoiminnot
 
