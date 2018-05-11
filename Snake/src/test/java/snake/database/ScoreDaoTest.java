@@ -28,8 +28,9 @@ public class ScoreDaoTest {
 
     @Before
     public void setUp() throws Exception {
-        db = new Database("jdbc:sqlite:database.db");
-        scoreDao = new ScoreDao(db);
+        String address = "jdbc:sqlite:testDatabase.db";
+        db = new Database(address);
+        scoreDao = new ScoreDao(db, address);
     }
 
     @After
@@ -48,6 +49,8 @@ public class ScoreDaoTest {
         scoreDao.delete("testplayer13");
         scoreDao.delete("testplayer14");
         scoreDao.delete("testplayer15");
+        scoreDao.delete("testplayer16");
+        scoreDao.delete("testplayer17");
 
     }
 
@@ -59,6 +62,8 @@ public class ScoreDaoTest {
 
     @Test
     public void findTenBestWorks() throws SQLException {
+        scoreDao.save("testplayer16", 10);
+        scoreDao.save("testplayer17", 11);
         ArrayList<String> results = scoreDao.findTenBest();
         String[] first = results.get(0).split(":");
         String[] second = results.get(1).split(":");

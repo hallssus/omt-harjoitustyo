@@ -29,9 +29,9 @@ public class ScoreDao {
      * @param database Our database's name
      * @throws SQLException Exception
      */
-    public ScoreDao(Database database) throws SQLException {
+    public ScoreDao(Database database, String address) throws SQLException {
         this.database = database;
-        this.conn = DriverManager.getConnection("jdbc:sqlite:database.db");
+        this.conn = DriverManager.getConnection(address);
     }
 
     /**

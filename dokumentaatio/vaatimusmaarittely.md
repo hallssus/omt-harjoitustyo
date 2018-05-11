@@ -12,8 +12,14 @@ Sovellus koostuu kuudesta eri näkymästä. Ensimmäisenä on alkuvalikko, jossa
 ![Käyttöliittymäluonnos](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoliittymacrop.jpeg)
 
 ## Perusversion tarjoama toiminnallisuus
-Pelaaminen yksin tai kaksinpelinä. Yksinpelissä voi valita haluaako nopeutuvat madon vai ei.
+* Pelaaminen yksin tai kaksinpelinä. 
+* Yksinpelissä voi valita haluaako nopeutuvat madon vai ei.
+* Käyttäjätunnuksen antaminen ja mikäli pelitulos on tarpeeksi hyvä, sen tallentaminen tietokantaan.
 
 ## Jatkokehitysideoita
-Käyttäjätunnus ja salasana voisi olla hyvä, ettei väärinkäyttöjä käyttäjätunnuksissa tapahdu.
-
+* Käyttäjätunnus ja salasana voisi olla hyvä, ettei väärinkäyttöjä käyttäjätunnuksissa tapahdu.
+* Reunoista voisi mennä läpi toiselle puolelle kenttää.
+* Vaikeustason voisi valita.
+* Erilaisia karttoja jotka vaikeutuvat mitä pidemmälle pelissä pääsee.
+* Kaksinpelissä ampumismahdollisuus tai jokin muu hauska ominaisuus.
+* Testattu ja toimivaksi todettu parempi pisteidenlaskumenetelmä.

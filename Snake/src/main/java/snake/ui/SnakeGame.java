@@ -59,8 +59,9 @@ public class SnakeGame extends Application {
      */
     public void setStartWindow(Stage window) throws Exception {
         this.classicbool = false;
-        database = new Database("jdbc:sqlite:database.db");
-        scoreDao = new ScoreDao(database);
+        String address = "jdbc:sqlite:database.db";
+        database = new Database(address);
+        scoreDao = new ScoreDao(database, address);
 
         Button single = new Button("Alone :(");
         Button duel = new Button("With a friend! ");
@@ -111,8 +112,11 @@ public class SnakeGame extends Application {
             window.show();
 
             gotitbutton.setOnAction((gogo) -> {
-                goSnakeGo(window, 2, player1name.getText(), player2name.getText());
+                if (!player1name.getText().contains(":") && !player2name.getText().contains(":")) {
+                    goSnakeGo(window, 2, player1name.getText(), player2name.getText());
+                }
             });
+
         });
     }
 
@@ -145,8 +149,12 @@ public class SnakeGame extends Application {
         });
 
         gotItButton.setOnAction(go -> {
-            goSnakeGo(window, 1, player1name.getText(), "");
+            String pl1name = player1name.getText();
+            if (!pl1name.contains(":")) {
+                goSnakeGo(window, 1, player1name.getText(), "");
+            }
         });
+
     }
 
     /**
@@ -232,8 +240,8 @@ public class SnakeGame extends Application {
                 int speed = 5;
                 if (!classicbool) {
                     speed = snake.getWorm().getSpeed();
-                    if (speed > 10) {
-                        speed = 10;
+                    if (speed > 9) {
+                        speed = 9;
                     }
                 }
                 if (now - previous < 4E8 - 40000000 * speed) {
@@ -257,8 +265,8 @@ public class SnakeGame extends Application {
 
                     //this is how fast the snake moves
                     int speed = snake.getWorm2().getSpeed();
-                    if (speed > 10) {
-                        speed = 10;
+                    if (speed > 9) {
+                        speed = 9;
                     }
                     if (now - previous < 4E8 - 40000000 * speed) {
                         return;
@@ -337,7 +345,7 @@ public class SnakeGame extends Application {
 
         endwindow.setTop(endtext);
 
-        int scorefor1 = this.seconds + player1length * 2;
+        int scorefor1 = snake.getTime() + player1length * 2;
         if (snake.getWorm().getIsDead() == true) {
             if (scorefor1 - 10 > 0) {
                 scorefor1 = scorefor1 - 10;
@@ -359,7 +367,7 @@ public class SnakeGame extends Application {
         }
         endwindow.setLeft(forPlayerOne);
         if (player2length != 0) { // if there is only one player, pl2 length is 0
-            int scorefor2 = this.seconds + player2length * 2;
+            int scorefor2 = snake.getTime() + player2length * 2;
             if (snake.getWorm2().getIsDead() == true) {
                 if (scorefor2 - 20 > 0) {
                     scorefor2 = scorefor2 - 20;

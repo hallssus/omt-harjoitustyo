@@ -19,5 +19,5 @@
 | 7.5   | 3 h 		| Korjasin tyhmiä bugeja, nyt pitäisi toimia ihan ok:sti. Lisäksi tein sikana testejä database-paketin luokille ScoreDao ja Database.
 | 8.5	| 3 h		| Parantelin graafista käyttöliittymää sekä tein siitä vähän nätimmän. Pistelasku pitäisi vielä saada paremmaksi, mutta en ole vielä varma miten sen tekisin.
 | 10.5	| 2 h 		| Dokumentaatiota päivitetty.
-| 11.5  | 3 h		| Dokumentaatiota päivitetty sekä pistelaskua vähän parannettu.
-| yht   | 51 h          |  
+| 11.5  | 6 h		| Dokumentaatio viimein saatu päätökseen sekä pistelaskua vähän parannettu. Lisäksi huomioitu se, ettei käyttäjä voi antaa käyttäjätunnusta, jossa on ":"-merkki.
+| yht   | 54 h          |  

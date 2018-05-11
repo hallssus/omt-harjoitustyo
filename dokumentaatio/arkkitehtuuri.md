@@ -1,9 +1,9 @@
 # Arkkitehtuurikuvaus
 
 ## Rakenne
-Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria, ja koodin pakkausrakenne on seuraava:
+Ohjelman rakenne noudattelee kolmitasoista kerrosarkkitehtuuria.
 
-Pakkaus *snake.ui* sisältää JavaFX:llä toteuteus graafisen käyttöliittymän, *snake.parts* sovelluslogiikan ja *snake.database* tietojen pysyväistallennusta vastaavan koodin.
+Pakkaus *snake.ui* sisältää JavaFX:llä toteutetun graafisen käyttöliittymän, *snake.parts* sovelluslogiikan ja *snake.database* tietojen pysyväistallennusta vastaavan koodin.
 
 ## Käyttöliittymä
 Käyttöliittymä sisältää kuusi erillistä näkymää:
@@ -25,6 +25,7 @@ Sovelluksen toiminnallisista kokonaisuuksista vastaa luokka Snake, joka rakentaa
 Luokka ScoreDao huolehtii tulosten kirjaamisesta tietokantaan ja sillä on myös metodeja parhaiden tulosten hakemisesta sieltä.
 
 Luokka-/pakkauskaavio:
+
 ![Luokkakaavio](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/pakettikaavio.png)
 
 ### Tietojen pysyväistallennus
@@ -41,12 +42,13 @@ Metodi siis tarkistaa onko mato osunut johonkin ja mikäli ei ole osunut mihink�
 
 #### Käyttäjän tuloksen tallentaminen tietokantaan
 
-Pelin loputtua mikäli pelaaja on saanut niin hyvän tuloksen, että se on kymmenen parhaan joukossa, tallennetaan tulos ja pelaajan nimi tietokantaan.
+Pelin loputtua mikäli pelaaja on saanut niin hyvän tuloksen, että se on kymmenen parhaan joukossa, tallennetaan tulos ja pelaajan nimi tietokantaan. Lopuksi tietokannasta poistetaan huonoin tulos, ettei se menisi kokonaan täyteen.
+
 ![Saveplayer](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/addPlayerToDatabase.png)
 
 ## Ohjelman rakenteeseen jääneet heikkoudet
 ### Sovellus
-Jos matoja liikuttaa nopeammin kuin niuden animointi tapahtuu, saattaa törmätä itseensä, sillä suunta vaihtuu, mutta sitä ei ehditä vielä animoimaan. En päässyt tästä bugista eroon.
+Jos matoja liikuttaa nopeammin kuin niiden animointi tapahtuu, saattaa törmätä itseensä, sillä suunta vaihtuu, mutta sitä ei ehditä vielä animoimaan. En päässyt tästä bugista eroon.
 Pelaajien nimet voivat olla jo valmiiksi tietokannassa, tai olla vaikka tyhjät, mikä on tietysti tyhmää.
 Pistelaskussa on toistaiseksi parantamisen varaa. 
 ### Käyttöliittymä

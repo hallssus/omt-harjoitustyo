@@ -6,15 +6,15 @@ Ohjelmaa on testattu sekä automatisoiduin yksikkö- ja integraatiotestein JUnit
 
 ### Sovelluslogiikka
 
-Automatisoitujen testien ytimen muodostavat sovelluslogiikka, eli pakkauksen [snake.parts](https://github.com/hallssus/omt-harjoitustyo/tree/master/Snake/src/main/java/snake/parts) luokkia testaavat integraatiotestit [PieceTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/parts/PieceTest.java), [WormTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/parts/WormTest.java) sekä [SnakeTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/parts/SnakeTest.java) joiden määrittelevät testitapaukset simuloivat ohjelman toiminnallisuuksia.
+Automatisoitujen testien ytimen muodostavat sovelluslogiikkaa, eli pakkauksen [snake.parts](https://github.com/hallssus/omt-harjoitustyo/tree/master/Snake/src/main/java/snake/parts) luokkia testaavat testit [PieceTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/parts/PieceTest.java), [WormTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/parts/WormTest.java) sekä [SnakeTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/parts/SnakeTest.java), joiden määrittelemät testitapaukset simuloivat ohjelman toiminnallisuuksia. 
 
 ### DAO-luokat
 
-DAO-luokat testataan [ScoreDaoTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/database/ScoreDaoTest.java)-luokan avulla. Testiluokassa luodaan vain testaamiseen käytetty testdatabase. 
+DAO-luokat testataan [ScoreDaoTest](https://github.com/hallssus/omt-harjoitustyo/blob/master/Snake/src/test/java/snake/database/ScoreDaoTest.java)-luokan avulla. Testiluokassa luodaan vain testaamiseen käytetty testdatabase, joka testien jälkeen tyhjennetään. 
 
 ### Testauskattavuus
 
-Testaamatta jäivät tilanteet DAOssa, jotka liittyvät virheisiin jota tulee jos kyseinen database on jo olemassa.
+Testaamatta jäivät osa Snake-luokan update-metodin tilanteista, jotka ovat suht yksinkertaisia, mutta vievät todella paljon aikaa testata. Testikattavuudeksi tuli 
 
 ## Järjestelmätestaus
 
@@ -30,5 +30,5 @@ Kaikki [määrittelydokumentin](https://github.com/hallssus/omt-harjoitustyo/blo
 
 ## Sovellukseen jääneet laatuongelmat
 
-Tyhjät pelaajan nimet ovat sallittuja toistaiseksi.
+Tyhjät pelaajan nimet ovat sallittuja toistaiseksi. Pelaajien nimissä ei saa olla kaksoispiste-merkkiä ":", sillä sitä käytetään kun tulostetaan asioita databasesta. Tämä siis tarkistetaan ohjelmassa, muttei minkäänlaista virheilmoitusta tule jos käyttäjä yrittää syöttää tällasen nimen, ohjelma ei vain mene eteenpäin. Tätä voisi selkeyttää, sillä kaikki eivät kuitenkaan jaksa lukea käyttöohjeita.
 

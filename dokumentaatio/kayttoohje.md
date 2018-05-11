@@ -19,13 +19,13 @@ Sovellus käynnistyy näkymään, jossa ensin kysytään, haluaako pelaaja pelat
 
 ![Ohjeet yksinpeliin](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/yksinpelinimi.png)
 
-Tähän kenttään pelaaja kirjoittaa haluamansa käyttäjätunnuksen. Yksinpelistä on kaksi versiota riippuen siitä, ruksittaako pelaaja Classic-painikkeen vai ei. Klassinen peli on normaali matopeli jossa mato kulkee kokoajan vakionopeudella. Ei-klassisessa pelissä mato nopeutuu jokaisen omenan myötä vähän, kunnes se saavuttaa maksiminopeutensa.
+Tähän kenttään pelaaja kirjoittaa haluamansa käyttäjätunnuksen. Käyttäjätunnuksessa ei saa olla kaksoispiste-merkkiä. Yksinpelistä on kaksi versiota riippuen siitä, ruksittaako pelaaja Classic-painikkeen vai ei. Klassinen peli on normaali matopeli jossa mato kulkee kokoajan vakionopeudella. Ei-klassisessa pelissä mato nopeutuu jokaisen omenan myötä vähän, kunnes se saavuttaa maksiminopeutensa.
 
 ### Kaksinpeli
 
 ![Ohjeet kahdestaan](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/ohjeetkahdestaan.png)
 
-Näihin kenttiin pelaajat laittavat haluamansa käyttäjätunnukset näihin kenttiin. 
+Näihin kenttiin pelaajat laittavat haluamansa käyttäjätunnukset. Käyttäjätunnuksissa ei saa olla kaksoispiste-merkkiä.
 
 ## Pelaaminen
 
@@ -37,7 +37,7 @@ Näihin kenttiin pelaajat laittavat haluamansa käyttäjätunnukset näihin kent
 
 ![Itse peli](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/matopeli.png)
 
-Kaksinpeliversio, jossa vihreät omenat ovat nopeusboosteja, ja punaiset oikeita omenoita.
+Kaksinpeliversio, jossa vihreät omenat ovat nopeusboosteja, ja punaiset oikeita omenoita. Nopeusboosteista saa myös pisteitä, mutta ei yhtä paljon kuin omenoista.
 
 ## Tulokset
 
@@ -49,4 +49,4 @@ Pelin jälkeen (tai sen aikana) voi painaa To scores-nappia, joka näyttää äs
 
 ![Highscoret](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/highscores.png)
 
-Viimeisenä näytetään kymmenen parasta pelaajaa pisteineen ruudussa.
+Viimeisenä näytetään kymmenen parasta pelaajaa pisteineen ruudussa. Tässä on vain kaksi tulosta, sillä tietokannassa ei ollut muista tuloksia vielä.

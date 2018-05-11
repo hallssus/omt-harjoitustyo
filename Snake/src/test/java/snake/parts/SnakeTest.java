@@ -40,9 +40,18 @@ public class SnakeTest {
     }
 
     @Test
-    public void updateWorks() {
+    public void updateWorksIfNotDead() {
         snake.update(snake.getWorm());
         assertTrue(snake.getIsOn() == true);
+    }
+    
+    @Test
+    public void updateWorksIfHitsAnApple(){
+        Apple apple = new Apple(6,5);
+        snake.setApple(apple);
+        snake.update(snake.getWorm());
+        snake.update(snake.getWorm());
+        assertTrue(snake.getWorm().hitsAPiece(apple));
     }
 
     @Test
@@ -53,6 +62,67 @@ public class SnakeTest {
         snake.update(snake.getWorm());
         snake.update(snake.getWorm());
         snake.update(snake.getWorm());
+        assertTrue(snake.getIsOn() == false);
+    }
+    
+    @Test
+    public void updateWorksIfHitsUpWall(){
+        Worm worm = snake.getWorm();
+        worm.setDirection(Direction.UP);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        assertTrue(snake.getIsOn() == false);
+    }
+    
+    @Test
+    public void updateWorksIfHitsLeftWall(){
+        Worm worm = snake.getWorm();
+        worm.setDirection(Direction.DOWN);
+        snake.update(worm);
+        worm.setDirection(Direction.LEFT);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        assertTrue(snake.getIsOn() == false);
+    }
+    
+    @Test
+    public void updateWorksIfHitsDownWall(){
+        Worm worm = snake.getWorm();
+        worm.setDirection(Direction.DOWN);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        snake.update(worm);
+        assertTrue(snake.getIsOn() == false);
+    }
+    
+    @Test
+    public void updateWorksIfHitsItself(){
+        Worm worm = snake.getWorm();
+        worm.setLength(6);
+        snake.update(worm);
+        worm.setDirection(Direction.DOWN);
+        snake.update(worm);
+        worm.setDirection(Direction.LEFT);
+        snake.update(worm);
+        worm.setDirection(Direction.UP);
+        snake.update(worm);
+        snake.update(worm);
         assertTrue(snake.getIsOn() == false);
     }
 
@@ -82,5 +152,12 @@ public class SnakeTest {
         String name2 = snakey.getWorm2().getPlayername();
         assertEquals("name2", name2);
     }
+    
+    @Test
+    public void getLoserWorks(){
+        snake.getWorm().setIsDead(true);
+        assertTrue(snake.getLoser().equals(snake.getWorm()));
+    }
+    
     
 }
