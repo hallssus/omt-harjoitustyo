@@ -14,7 +14,11 @@ DAO-luokat testataan [ScoreDaoTest](https://github.com/hallssus/omt-harjoitustyo
 
 ### Testauskattavuus
 
-Testaamatta jäivät osa Snake-luokan update-metodin tilanteista, jotka ovat suht yksinkertaisia, mutta vievät todella paljon aikaa testata. Testikattavuudeksi tuli 
+Käyttöliittymää *SnakeGame* lukuunottamatta sovelluksen testauksen rivikattavuudeksi tuli 94% ja haaraumakattavuudeksi 87%.
+
+![Testikattavuus](https://github.com/hallssus/omt-harjoitustyo/blob/master/dokumentaatio/kuvat/testikattavuus.png)
+
+Testaamatta jäivät osa Snake-luokan update-metodin tilanteista, jotka ovat suht yksinkertaisia, mutta vievät todella paljon aikaa testata. 
 
 ## Järjestelmätestaus
 
